@@ -1,0 +1,24 @@
+{
+	"extends": "../../../../tsconfig.base.json",
+	"compilerOptions": {
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"jsx": "react-jsx",
+		"paths": {
+			"@adc/utils/*": ["./../../../../src/utils/*"],
+			"@apps/*": ["./../../../../src/apps/*"],
+			"@media-ui-library/utils/*": ["./../../../adc-media/apps/media-ui-library/utils/*"],
+			"@media-ui-library/*": ["./../../../adc-media/apps/media-ui-library/src/*"],
+			"@ui-library/utils/*": ["./../../../../src/apps/public/00-adc-ui-library/utils/*"],
+			"@ui-library/*": ["./../../../../src/apps/public/00-adc-ui-library/src/*"],
+			"@common/*": ["./../../../../src/common/*"]
+		},
+		"typeRoots": ["./node_modules/@types", "../../../../node_modules/@types"]
+	},
+	"include": [
+		"src/**/*",
+		"*.ts",
+		"./../../../../src/apps/public/00-adc-ui-library/utils/react-jsx.ts",
+		"./../../../adc-media/apps/media-ui-library/utils/react-jsx.ts"
+	]
+}
