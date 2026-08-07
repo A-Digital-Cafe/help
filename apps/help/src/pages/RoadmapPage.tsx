@@ -1,6 +1,7 @@
 import "@ui-library/utils/react-jsx";
 import { isPlatformUrl } from "@ui-library/utils/platform-links";
 import PageShell from "../components/PageShell";
+import { securityPolicyUrl } from "@common/utils/public-env.js";
 
 interface Item {
 	title: string;
@@ -102,7 +103,16 @@ const LAYERS: Array<{ id: string; name: string; description: string; items: Item
 		name: "Capa de Transparencia (Operaciones)",
 		description: "Visibilidad pública del estado y la mejora continua.",
 		items: [
-			{ title: "SLA/SLO + Status Page", status: "futuro", notes: "Subdominio status/health con incidentes reales." },
+			{
+				title: "SLA/SLO + Status Page",
+				status: "fase-1",
+				notes:
+					"La página de estado ya está publicada: semáforo de disponibilidad por servicio con histórico de 48 h e incidentes reales (manuales, detectados automáticamente y avisos de mantenimiento). Los objetivos de SLA/SLO —qué nivel se compromete y qué corresponde si no se cumple— todavía no están definidos, así que hoy no hay un nivel de servicio exigible.",
+				links: [
+					{ label: "Página de estado", href: "https://status.adigitalcafe.com" },
+					{ label: "Disponibilidad", href: "/terms#disponibilidad" },
+				],
+			},
 			{
 				title: "Degradación de límites ante caída del servicio de planes",
 				status: "done",
@@ -126,7 +136,7 @@ const LAYERS: Array<{ id: string; name: string; description: string; items: Item
 					"Log público de transparencia en vivo (id, fecha/hora, hash SHA-256 y estado) y recompensas con beneficios temporales escalonados según severidad; reportes por ticket de Seguridad. Política publicada.",
 				links: [
 					{ label: "Log de transparencia", href: "https://status.adigitalcafe.com/status/bounty" },
-					{ label: "Política de seguridad", href: "https://github.com/A-Digital-Cafe/ADC-platform/blob/main/.github/SECURITY.md" },
+					{ label: "Política de seguridad", href: securityPolicyUrl() },
 				],
 			},
 			{ title: "ISO 9001 (referencia)", status: "futuro", notes: "Gestión de calidad continua." },

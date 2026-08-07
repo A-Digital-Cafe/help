@@ -77,11 +77,12 @@ const REPORT_ITEMS: ReportItem[] = [
 	},
 	{
 		title: "Seguridad y bug bounty",
-		status: "planificado",
+		status: "aplicado",
 		metric: "Reportes de vulnerabilidades recibidos, estados y tiempos de respuesta en forma agregada.",
-		needed: "Crear tickets públicos con id, fecha, hash y estado.",
-		relatedHref: "/contact#canales",
-		relatedLabel: "Ver canal de reportes",
+		needed:
+			"El log público de transparencia está en vivo: id, fecha/hora, hash SHA-256 y estado de cada reporte, sin necesidad de iniciar sesión. Los reportes entran por ticket de Seguridad.",
+		relatedHref: "https://status.adigitalcafe.com/status/bounty",
+		relatedLabel: "Ver el log de transparencia",
 	},
 	{
 		title: "Publicidad en games",

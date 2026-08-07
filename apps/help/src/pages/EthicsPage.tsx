@@ -35,8 +35,11 @@ export function EthicsPage() {
 
 			<h2 id="seguridad-responsable">Seguridad responsable</h2>
 			<p>
-				Los reportes de vulnerabilidades hechos de buena fe deben tratarse con prioridad, respeto y coordinación. El canal actual para
-				reportarlos está en <a href="/contact#canales">contacto</a>, mientras se define un sistema público de tickets.
+				Los reportes de vulnerabilidades hechos de buena fe deben tratarse con prioridad, respeto y coordinación. Se reportan por ticket
+				de <strong>Seguridad</strong> y quedan registrados en un{" "}
+				<adc-platform-link href="https://status.adigitalcafe.com/status/bounty">log público de transparencia</adc-platform-link> —id,
+				fecha/hora, hash SHA-256 y estado, consultable sin iniciar sesión—, de modo que el estado de un reporte no dependa de nuestra
+				palabra. Los canales de contacto siguen disponibles en <a href="/contact#canales">contacto</a>.
 			</p>
 
 			<h2 id="debido-proceso-comunitario">Debido proceso comunitario</h2>
