@@ -15,7 +15,7 @@
 		"i18n": true,
 		"security": {
 			"headers": {
-				"Content-Security-Policy-Restrict": "img-src 'self' data: blob: https://cdn.discordapp.com https://api.dicebear.com"
+				"Content-Security-Policy-Restrict": "img-src 'self' data: blob: https://cdn.discordapp.com"
 			}
 		},
 		"hosting": [
