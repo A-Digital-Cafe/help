@@ -1,9 +1,19 @@
 /**
- * Lista de códigos ISO 3166-1 alpha-2 actualmente bloqueados por geofiltro
- * en Cloudflare. Se mantiene como dato visible en /values para transparencia.
- * Mantener sincronizada con la regla activa en Cloudflare.
+ * Códigos ISO 3166-1 alpha-2 actualmente bloqueados por geofiltro en Cloudflare.
+ * Se publica como dato visible en /values para transparencia; mantener sincronizado
+ * con la regla activa en Cloudflare.
+ *
+ * El cruce con otras vistas —hoy la tabla de edades mínimas de /terms— se hace por
+ * **código**, nunca por nombre: la lista está en inglés y la de edades en español, así
+ * que comparar nombres no detectaría que un país figura en las dos.
  */
-export const BLOCKED_COUNTRIES: ReadonlyArray<{ code: string; name: string }> = [
+
+export interface Country {
+	readonly code: string;
+	readonly name: string;
+}
+
+export const BLOCKED_COUNTRIES = [
 	{ code: "AF", name: "Afghanistan" },
 	{ code: "DZ", name: "Algeria" },
 	{ code: "BD", name: "Bangladesh" },
@@ -70,4 +80,7 @@ export const BLOCKED_COUNTRIES: ReadonlyArray<{ code: string; name: string }> = 
 	{ code: "YE", name: "Yemen" },
 	{ code: "ZM", name: "Zambia" },
 	{ code: "ZW", name: "Zimbabwe" },
-];
+] as const satisfies ReadonlyArray<Country>;
+
+/** Índice por código para cruces rápidos. */
+export const BLOCKED_COUNTRY_CODES: ReadonlySet<string> = new Set(BLOCKED_COUNTRIES.map((c) => c.code));

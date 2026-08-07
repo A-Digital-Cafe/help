@@ -42,6 +42,28 @@ export function PrivacyPage() {
 				<li>Metadatos técnicos mínimos necesarios para autenticación, sesión y seguridad.</li>
 				<li>Contenido que decides publicar (artículos, comentarios, archivos adjuntos).</li>
 				<li>
+					Lo que escribís en un <strong>ticket de soporte</strong> (queja, sugerencia o reporte de seguridad): título, descripción,
+					adjuntos y comentarios, más el email de contacto que indiques y el de tu sesión.
+				</li>
+				<li>
+					Lo que enviás al <strong>solicitar la creación de una organización</strong>: sus datos (nombre, email, sitio, redes) y, para
+					prevenir abuso del alta, tu identificador de cuenta, el email de tu sesión y <strong>la dirección IP</strong> desde la que
+					hacés la solicitud.
+				</li>
+				<li>
+					<strong>Datos de la contratación de un plan</strong> (si contratás uno): plan y asientos, precio de lista, importe
+					efectivamente cobrado y su moneda, la cotización oficial aplicada para expresarlo en pesos, los identificadores que la
+					pasarela asigna a cada pago y, si ejercés el arrepentimiento, la constancia de esa revocación. <strong>No recibimos ni
+					almacenamos los datos de tu tarjeta</strong>: los trata la pasarela de pago.
+				</li>
+				<li>
+					<strong>Datos fiscales de la contratación</strong> (si contratás un plan): el país de residencia fiscal que declarás,
+					porque determina qué comprobante corresponde emitir, y —sólo si ese país no es Argentina— el nombre y el domicilio que
+					ARCA exige para la factura de exportación, más tu identificación fiscal si querés que figure. Junto a tu declaración
+					guardamos el país que dedujo la red de distribución a partir de tu IP, como constancia de la operación; no decide nada y
+					una diferencia entre ambos no te bloquea la compra.
+				</li>
+				<li>
 					<strong>Dispositivos vinculados a Drive</strong> (si usás la sección Dispositivos): nombre que les des, tipo
 					(navegador o agente CLI), fecha de última conexión y, para agentes CLI, un token de acceso del que sólo
 					almacenamos el hash. Podés renombrarlos o revocarlos cuando quieras.
@@ -57,13 +79,13 @@ export function PrivacyPage() {
 			<h2 id="finalidades">3. Para qué usamos esos datos (base legal y finalidad)</h2>
 			<ul>
 				<li>
-					<strong>Ejecución del servicio que solicitas</strong> (art. 6.1.b RGPD; art. 5.2.a de la Ley 25.326, tratamiento derivado de
-					una relación contractual): registro y alta de cuenta, autenticación y sesión, almacenamiento de tus archivos y correo,
-					dispositivos vinculados, soporte y gestión de tu plan.
+					<strong>Ejecución del servicio que solicitas</strong> (art. 6.1.b RGPD; art. 5.2, inc. d) de la Ley 25.326, tratamiento
+					derivado de una relación contractual): registro y alta de cuenta, autenticación y sesión, almacenamiento de tus archivos y
+					correo, dispositivos vinculados, soporte y gestión de tu plan.
 				</li>
 				<li>
-					<strong>Obligación legal</strong> (art. 6.1.c RGPD): emisión y conservación de comprobantes fiscales, y tramitación de las
-					solicitudes de derechos dentro de los plazos que fija la ley.
+					<strong>Obligación legal</strong> (art. 6.1.c RGPD): emisión y conservación de comprobantes fiscales, constancia de los
+					arrepentimientos de compra y su reintegro, y tramitación de las solicitudes de derechos dentro de los plazos que fija la ley.
 				</li>
 				<li>
 					<strong>Consentimiento explícito</strong> para usos opcionales (
@@ -76,7 +98,7 @@ export function PrivacyPage() {
 
 			<h3 id="intereses-legitimos">3.1. Qué intereses legítimos invocamos</h3>
 			<p>
-				Cuando decimos “interés legítimo” no lo usamos como comodín. Son cuatro finalidades concretas, cada una con el dato mínimo que
+				Cuando decimos “interés legítimo” no lo usamos como comodín. Son cinco finalidades concretas, cada una con el dato mínimo que
 				necesita y con la razón por la que entendemos que no desplaza tus derechos:
 			</p>
 			<ul>
@@ -89,7 +111,8 @@ export function PrivacyPage() {
 				<li>
 					<strong>Moderación y prevención de evasión de baneos.</strong> Hacer cumplir los <a href="/terms">Términos</a> y evitar que
 					una cuenta sancionada vuelva creando otra. Deliberadamente lo hacemos con <em>hashes unidireccionales</em> del email y de la
-					IP en lugar de guardar esos datos en claro: es la opción menos invasiva que sirve para la finalidad.
+					IP en lugar de guardar esos datos en claro: es la opción menos invasiva que sirve para la finalidad. Qué guarda exactamente
+					cada bloqueo, y por cuánto tiempo, está en <a href="#conservacion">§5</a>.
 				</li>
 				<li>
 					<strong>Diagnóstico y disponibilidad del servicio.</strong> Depurar errores, medir disponibilidad y dimensionar capacidad.
@@ -107,6 +130,14 @@ export function PrivacyPage() {
 					tu cuenta, y cada envío incluye cómo hacerlo.
 				</li>
 			</ul>
+			<p>
+				El “interés legítimo” es una figura del RGPD que la <strong>Ley 25.326 no tiene</strong>: su art. 5.1 exige consentimiento y su
+				art. 5.2 enumera excepciones cerradas, sin una cláusula abierta equivalente. Por eso, bajo la ley argentina, estas finalidades se
+				apoyan en el <strong>art. 5.2, inc. d)</strong>, por derivar de la relación contractual que tenés con nosotros. Para quienes
+				visitan el sitio sin tener cuenta no hay relación contractual ni base equivalente al interés legítimo: por eso limitamos ese
+				tratamiento a lo estrictamente imprescindible para la seguridad del sistema —la IP de la petición y sus metadatos técnicos— y a
+				métricas de tráfico agregadas, sin identificadores en tu dispositivo y sin perfilado.
+			</p>
 			<adc-callout tone="info" role="note">
 				<strong>Derecho de oposición.</strong> Podés oponerte a cualquiera de estos tratamientos (art. 21 RGPD) escribiendo a los
 				canales de <a href="#responsable">contacto</a>. Si te oponés a las novedades del servicio, dejamos de enviarlas sin más. Si te
@@ -214,6 +245,35 @@ export function PrivacyPage() {
 							<td>Se toman cada 3 horas y alimentan la página de estado pública; no contienen datos personales.</td>
 						</tr>
 						<tr>
+							<td>Solicitudes de creación de organización</td>
+							<td>
+								<strong>Sin plazo fijo</strong>: son el respaldo del alta de una organización que puede seguir existiendo después
+								de que te vayas. Al eliminarse la cuenta se anonimizan igual que los tickets: se borran tu identificador de
+								cuenta, el email de sesión y <strong>la dirección IP</strong> desde la que hiciste la solicitud, y esas líneas
+								pasan a decir “(cuenta eliminada)”. Sobreviven los datos de la organización que pediste crear.
+							</td>
+						</tr>
+						<tr>
+							<td>Tickets de soporte y su contenido</td>
+							<td>
+								<strong>Sin plazo fijo</strong>: son el registro de qué se reportó y cómo se resolvió. Al eliminarse la cuenta el
+								ticket <strong>no se borra, se anonimiza</strong>: se eliminan el email de contacto, el email de sesión, el vínculo
+								con tu cuenta y el handle con el que hubieras pedido crédito público, y esas líneas se reemplazan en el cuerpo por
+								“(cuenta eliminada)”. Sobreviven el título y la descripción tal como los escribiste, la severidad, el estado, los
+								adjuntos y los comentarios —y, en reportes de seguridad, el hash de la descripción original—. Si escribiste datos
+								personales dentro de ese texto libre, se conservan.
+							</td>
+						</tr>
+						<tr>
+							<td>Contratación, pagos y constancia de arrepentimiento</td>
+							<td>
+								Mientras la suscripción esté vigente y luego, como respaldo de la operación, junto con los comprobantes de la fila
+								siguiente. Incluye el plan, el precio de lista, el importe cobrado, la cotización oficial aplicada con su fuente y
+								fecha, los identificadores de pago de la pasarela y —si ejercés el arrepentimiento— fecha, quién lo pidió, pagos
+								reintegrados, importe, moneda y estado del reintegro.
+							</td>
+						</tr>
+						<tr>
 							<td>Comprobantes fiscales y registros contables</td>
 							<td>El plazo que exige la normativa fiscal argentina, que sobrevive a la baja de la cuenta.</td>
 						</tr>
@@ -246,12 +306,34 @@ export function PrivacyPage() {
 			</p>
 			<p>
 				<strong>Cuentas baneadas o eliminadas:</strong> se conservan durante <strong>30 días</strong> desde el evento (ban o solicitud de
-				borrado) y luego se eliminan automáticamente. Para evitar la reentrada de cuentas baneadas mantenemos una{" "}
-				<em>lista anti-evasión</em> basada en <strong>hashes HMAC-SHA256</strong> del email normalizado y, durante un máximo de{" "}
-				<strong>3 horas</strong> tras el último intento de inicio de sesión, del hash de IP. Estos hashes son <em>unidireccionales</em> y
-				no almacenamos los emails, las IPs ni ninguna otra PII en estos registros. Para usuarios baneados desde otros sistemas conectados
-				(p. ej. Discord modlogs) sólo guardamos un identificador opaco del evento externo para poder revertir el ban si la fuente
-				original lo revoca.
+				borrado) y luego se eliminan automáticamente.
+			</p>
+			<p>
+				<strong>Lista anti-evasión.</strong> Para que una cuenta sancionada no vuelva creando otra, cada bloqueo deja un registro que,{" "}
+				<em>mientras está vigente</em>, guarda: <strong>hashes HMAC-SHA256</strong> del email normalizado y de las IPs usadas en las{" "}
+				<strong>3 horas</strong> previas al bloqueo, una máscara del email del tipo <code>gp***@g***.com</code>, el identificador interno
+				de la cuenta si lo conocemos, la fecha del último inicio de sesión conocido, el motivo que escribió quien modera, las fechas de
+				bloqueo y de vencimiento, y de dónde salió la sanción (manual, modlogs de Discord, API o el propio sistema) junto con la
+				referencia opaca del evento externo que la originó —que es lo que nos permite revertirla si la fuente original la revoca—. El
+				email y la IP <strong>nunca</strong> se guardan en claro, en ningún estado del registro, y los hashes completos no se devuelven
+				por ninguna API: el panel de moderación, accesible sólo para la administración global, ve contadores, la máscara y un prefijo de
+				12 caracteres del hash.
+			</p>
+			<p>
+				Un hash con clave es <strong>seudonimización, no anonimización</strong>: no se puede revertir, pero sí permite comprobar si un
+				email o una IP determinados están en la lista. Por eso lo tratamos como dato personal y le ponemos plazos.
+			</p>
+			<p>
+				<strong>Cuando el bloqueo se levanta</strong> —a mano, porque venció, porque la fuente externa lo revocó o porque se eliminó la
+				cuenta— el registro deja de tener efecto (ninguna verificación mira bloqueos levantados) y en ese mismo momento se borran de la
+				base de datos la <strong>máscara del email</strong>, la <strong>fecha del último inicio de sesión</strong> y el{" "}
+				<strong>motivo del bloqueo</strong>. Sólo queda lo mínimo para poder dar cuenta de la decisión: los hashes, el identificador
+				interno de la cuenta, las fechas de bloqueo, de vencimiento y de levantamiento, el origen con su referencia opaca y el motivo del
+				levantamiento. A los{" "}
+				<strong>6 meses del levantamiento</strong> el registro completo se elimina de forma automática; el borrado lo ejecuta el motor de
+				la base de datos en barridos periódicos, así que puede haber minutos de diferencia con el cumplimiento exacto del plazo. Los
+				bloqueos temporales dejan de aplicarse en el instante en que vencen, y un proceso que corre cada 6 horas los marca como levantados
+				y les aplica esa misma limpieza. Los bloqueos que siguen vigentes no tienen plazo: se conservan mientras lo estén.
 			</p>
 
 			<h2 id="seguridad">6. Seguridad</h2>
@@ -334,8 +416,11 @@ export function PrivacyPage() {
 							<td>
 								<strong>Mercado Pago</strong>
 							</td>
-							<td>Procesamiento de pagos y débito recurrente de los planes.</td>
-							<td>Datos del medio de pago e importes. ADC no recibe ni almacena números de tarjeta.</td>
+							<td>Procesamiento de pagos, débito recurrente de los planes y reintegros por arrepentimiento.</td>
+							<td>
+								Datos del medio de pago e importes. ADC no recibe ni almacena números de tarjeta. El reintegro se ordena sobre el
+								pago original, así que vuelve por el mismo medio con el que se cobró.
+							</td>
 							<td>Argentina y región.</td>
 							<td>Responsable autónomo del medio de pago. Webhooks con verificación de firma.</td>
 						</tr>
@@ -354,6 +439,12 @@ export function PrivacyPage() {
 			<p>
 				Cualquier alta o baja en esta lista se refleja aquí y se anuncia por los canales de aviso de la cuenta antes de entrar en
 				vigor.
+			</p>
+			<p>
+				Para expresar los precios en pesos consultamos la <strong>cotización oficial del Banco Central de la República Argentina</strong>{" "}
+				(BCRA). Es una consulta pública que hace nuestro servidor a la API del BCRA: no viajan en ella datos personales tuyos —ni tu IP—,
+				por eso el BCRA no figura en la tabla como subprocesador. De esa consulta guardamos, junto a tu contratación, el valor de la
+				cotización, su fuente y su fecha, para que puedas verificar con qué tipo de cambio se calculó el importe.
 			</p>
 
 			<h2 id="transferencias-internacionales">8. Transferencias internacionales</h2>

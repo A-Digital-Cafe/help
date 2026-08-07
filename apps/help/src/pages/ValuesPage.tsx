@@ -53,6 +53,7 @@ export function ValuesPage() {
 			subtitle='ADC busca ser un "Espacio seguro para todos 🏳️‍🌈".'
 			standards={["GNI (HRIA)", "Derechos humanos"]}
 			declaration="commitment"
+			lastUpdated="2026-08-06"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Valores" }]}
 		>
 			<h2 id="nuestros-valores">Nuestros valores</h2>
