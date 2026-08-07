@@ -1,6 +1,7 @@
 import "@ui-library/utils/react-jsx";
 import PageShell from "../components/PageShell";
 import { CONTACTS } from "../data/contact";
+import { securityPolicyUrl } from "@common/utils/public-env.js";
 
 export function ContactPage() {
 	return (
@@ -49,7 +50,7 @@ export function ContactPage() {
 					(id, fecha/hora, hash y estado) y, si aceptás crédito, en{" "}
 					<adc-platform-link href="https://status.adigitalcafe.com/status/bounty">agradecimientos</adc-platform-link>. Recompensamos con beneficios temporales según{" "}
 					severidad (ver{" "}
-					<adc-external-link href="https://github.com/A-Digital-Cafe/ADC-platform/blob/main/.github/SECURITY.md">
+					<adc-external-link href={securityPolicyUrl()}>
 						política de seguridad
 					</adc-external-link>
 					).
