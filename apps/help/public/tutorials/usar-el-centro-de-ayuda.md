@@ -3,7 +3,7 @@ El Centro de Ayuda concentra todo lo que necesitás para usar la plataforma con 
 ## Qué encontrás acá
 
 - **Tutoriales**: guías breves de cada aplicación, agrupadas por app en [help.adigitalcafe.com/tutorials](https://help.adigitalcafe.com/tutorials).
-- **Políticas**: privacidad (GDPR), cookies y términos de uso.
+- **Políticas**: privacidad (Ley 25.326 / RGPD), cookies y términos de uso.
 - **Valores y ética**: nuestro marco de espacio seguro, código de ética y roadmap público de cumplimiento.
 
 ## Contacto

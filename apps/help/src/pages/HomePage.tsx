@@ -27,15 +27,19 @@ export function HomePage() {
 					</span>
 					<span>
 						<a className="hover:underline" href="/privacy">
-							GDPR básico
+							Política de privacidad
 						</a>
 						,{" "}
 						<a className="hover:underline" href="/cookies">
 							política de cookies
-						</a>{" "}
-						y{" "}
+						</a>
+						,{" "}
 						<a className="hover:underline" href="/terms">
 							términos de uso
+						</a>{" "}
+						y{" "}
+						<a className="hover:underline" href="/dpa">
+							DPA para organizaciones
 						</a>
 						{"."}
 					</span>
@@ -86,12 +90,17 @@ export function HomePage() {
 					</li>
 					<li>
 						<a className="hover:underline" href="/privacy">
-							Política de Privacidad (GDPR)
+							Política de Privacidad
 						</a>
 					</li>
 					<li>
 						<a className="hover:underline" href="/cookies">
 							Política de Cookies
+						</a>
+					</li>
+					<li>
+						<a className="hover:underline" href="/dpa">
+							Acuerdo de Tratamiento de Datos (DPA)
 						</a>
 					</li>
 					<li>

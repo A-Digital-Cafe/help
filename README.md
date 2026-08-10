@@ -30,7 +30,13 @@ La versión vigente de los Términos y de la Política de Privacidad **no vive a
 `@common/utils/legal-docs.ts`, en el repositorio principal, porque también la necesitan el formulario
 de registro (que graba qué versión aceptó cada persona) y el avisador de cambios. Al editar un
 documento legal hay que subir su versión ahí; esta app la lee y la muestra como fecha de última
-actualización.
+actualización. Ese archivo también guarda el `contentHash` (SHA-256) de cada documento, que viaja a
+la constancia de aceptación.
+
+El hook de [`.githooks/pre-commit`](.githooks/pre-commit) mantiene el hash en sincronía: regenera el
+`contentHash` en el repo raíz al commitear cambios de `TermsPage`/`PrivacyPage` y bloquea el commit
+si el texto cambió sin bump de versión (la versión nunca se auto-bumpea: dispara el aviso legal a
+usuarios). En un clon fresco hay que activarlo una vez: `git config core.hooksPath .githooks`.
 
 ## Uso
 

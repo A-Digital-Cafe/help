@@ -3,7 +3,10 @@ import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 import { router } from "@common/utils/router.js";
 import { useTranslation } from "@ui-library/utils/i18n-react";
-import { BRAND, LAST_REVIEW } from "../data/contact";
+import { LEGAL_DOCUMENTS } from "@common/utils/legal-docs.js";
+import { BRAND, SITE_LAST_VERSION } from "../data/contact";
+
+type LegalDocumentId = keyof typeof LEGAL_DOCUMENTS;
 
 interface PageShellProps {
 	title: string;
@@ -11,6 +14,12 @@ interface PageShellProps {
 	standards?: string[];
 	declaration?: "commitment" | "informational" | "policy";
 	lastUpdated?: string;
+	/**
+	 * Id del documento en `LEGAL_DOCUMENTS`. Habilita el enlace a su PDF congelado: el soporte
+	 * duradero que exige la contratación electrónica (arts. 1106/1107 CCyC). Sólo lo pasan las
+	 * páginas versionadas; el resto no tiene PDF porque no hay nada que archivar.
+	 */
+	legalDocId?: LegalDocumentId;
 	breadcrumb?: Array<{ label: string; href?: string }>;
 	children: ReactNode;
 }
@@ -36,7 +45,17 @@ function interpolateFallback(template: string, params?: Record<string, string>):
  * Wrapper estable para páginas internas. Mantiene un único nodo top-level
  * para evitar que slots de Stencil (`shadow:false`) repongan hijos al re-render.
  */
-export default function PageShell({ title, subtitle, standards, declaration, lastUpdated, breadcrumb, children }: Readonly<PageShellProps>) {
+export default function PageShell({
+	title,
+	subtitle,
+	standards,
+	declaration,
+	lastUpdated,
+	legalDocId,
+	breadcrumb,
+	children,
+}: Readonly<PageShellProps>) {
+	const legalDoc = legalDocId ? LEGAL_DOCUMENTS[legalDocId] : null;
 	const { t } = useTranslation({ namespace: "help" });
 	const breadcrumbRef = useRef<HTMLElement>(null);
 	const backHref = breadcrumb && breadcrumb.length > 1 ? breadcrumb.at(-2)?.href : undefined;
@@ -117,9 +136,21 @@ export default function PageShell({ title, subtitle, standards, declaration, las
 
 			<footer className="mt-10 text-sm opacity-70">
 				<p>
-					{`${tx("lastUpdated", "Última actualización")}: `}
-					<time dateTime={lastUpdated ?? LAST_REVIEW}>{lastUpdated ?? LAST_REVIEW}</time>
+					{lastUpdated ? `${tx("lastUpdated", "Última actualización")}: ` : `${tx("siteLastVersion", "Última versión general del sitio")}: `}
+					<time dateTime={lastUpdated ?? SITE_LAST_VERSION}>{lastUpdated ?? SITE_LAST_VERSION}</time>
 				</p>
+				{legalDoc && (
+					<p className="mt-1" data-pdf-omit>
+						<a href={`/pub/legal/${legalDoc.id}-${legalDoc.version}.pdf`} download>
+							{tx("downloadPdf", "Descargar esta versión en PDF")}
+						</a>{" "}
+						—{" "}
+						{tx(
+							"pdfIsCopy",
+							"copia para tus registros. La versión oficial es la publicada en esta página; si alguna vez difirieran, vale ésta."
+						)}
+					</p>
+				)}
 			</footer>
 		</article>
 	);

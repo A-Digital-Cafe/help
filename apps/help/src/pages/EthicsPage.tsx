@@ -6,8 +6,9 @@ export function EthicsPage() {
 		<PageShell
 			title="Código de Ética"
 			subtitle="Compromisos operativos y autodeclaración de conformidad."
-			standards={["ISO/IEC 17050-1 (autodeclaración)"]}
+			standards={[]}
 			declaration="commitment"
+			lastUpdated="2026-08-08"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Ética" }]}
 		>
 			<h2 id="compromisos">Compromisos</h2>
@@ -79,13 +80,20 @@ export function EthicsPage() {
 				<a href="/roadmap">roadmap</a>. Cuando una decisión cambie, el cambio debe poder explicarse con contexto suficiente.
 			</p>
 
-			<h2 id="autodeclaracion-iso-iec-17050-1">Autodeclaración (ISO/IEC 17050-1)</h2>
+			<h2 id="proteccion-de-datos">Protección de datos</h2>
 			<p>
-				Bajo el espíritu de la norma ISO/IEC 17050-1 (autodeclaraciones de conformidad), declaramos como{" "}
-				<strong>compromiso público y no como certificación externa</strong> que trabajamos para alinear la plataforma con:
+				Tratamos datos personales conforme a la <strong>Ley 25.326</strong> y, para personas en la Unión Europea, al{" "}
+				<strong>RGPD</strong>; las bases legales, los plazos y los derechos están detallados en <a href="/privacy">Privacidad</a>. Quedan
+				pendientes, y documentados como tales: la decisión sobre la designación de un representante en la UE (art. 27 RGPD) y el registro
+				interno de incidentes de seguridad (art. 33.5 RGPD).
+			</p>
+
+			<h2 id="autodeclaracion-de-compromisos">Autodeclaración de compromisos</h2>
+			<p>
+				Declaramos como <strong>compromiso público y no como certificación externa</strong> que trabajamos para alinear la plataforma
+				con:
 			</p>
 			<ul>
-				<li>GDPR — protección de datos personales.</li>
 				<li>OWASP ASVS — seguridad de aplicación.</li>
 				<li>ISO 25010:2023 — calidad de software.</li>
 				<li>WCAG 2.1 AA — accesibilidad.</li>
@@ -96,6 +104,14 @@ export function EthicsPage() {
 				Esta declaración es responsable y revisable: indica intención y trazabilidad. No sustituye una auditoría independiente. Los
 				avances concretos se reflejan en el <a href="/roadmap">roadmap</a>.
 			</adc-callout>
+
+			<p>
+				<strong>Sobre la ISO/IEC 17050-1.</strong> Esa norma describe cómo se emite una <em>declaración de conformidad del proveedor</em>:
+				con identificador propio, objeto declarado, la lista de requisitos que se declaran cumplidos con su edición y fecha, el alcance y
+				quién la firma. Lo de arriba <strong>todavía no es</strong> una declaración así: es una lista de compromisos. Emitirla en forma
+				queda pendiente hasta cerrar los puntos abiertos de estas páginas — no tiene sentido firmar una conformidad mientras hay
+				requisitos que sabemos que no están cerrados. Hasta entonces preferimos no invocar la norma en el encabezado de esta página.
+			</p>
 
 			<h2 id="sanciones-internas">Sanciones internas</h2>
 			<p>

@@ -1,6 +1,12 @@
 node_modules/
 dist/
 dist-ui/
+
+# PDFs congelados de los documentos legales (`bun run build:legal`). NO se commitean: llevan
+# horneados el nombre legal, el CUIT y el domicilio del responsable, que llegan por
+# `ADC_PUBLIC_OPERATOR_*` justamente para que un fork no los herede y para que cambiarlos no sea
+# un commit. Se generan en el despliegue y, una vez generado, un archivo no se regenera.
+apps/help/public/legal/
 *.log
 .env
 .env.*

@@ -1,5 +1,6 @@
 import "@ui-library/utils/react-jsx";
 import PageShell from "../components/PageShell";
+import { LEGAL_DOCUMENTS } from "@common/utils/legal-docs.js";
 import { CONTACTS } from "../data/contact";
 
 export function CookiesPage() {
@@ -9,7 +10,8 @@ export function CookiesPage() {
 			subtitle="Qué guarda el sitio en tu dispositivo, para qué, cuánto dura y qué terceros pueden intervenir."
 			standards={["Ley 25.326", "GDPR / ePrivacy"]}
 			declaration="policy"
-			lastUpdated="2026-08-06"
+			lastUpdated={LEGAL_DOCUMENTS.cookies.version}
+			legalDocId="cookies"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Cookies" }]}
 		>
 			<h2 id="alcance">1. Qué cubre esta página</h2>
@@ -20,8 +22,9 @@ export function CookiesPage() {
 				<code>localStorage</code>, <code>sessionStorage</code>, <code>IndexedDB</code> y la caché del Service Worker.
 			</p>
 			<adc-callout tone="info" role="note">
-				Nada de lo que se lista en esta página se usa para publicidad, perfilado ni medición de terceros. No hay cookies de analítica, ni
-				píxeles, ni identificadores publicitarios.
+				Nada de lo que se lista en esta página se usa para publicidad ni perfilado. No hay cookies de analítica, ni píxeles, ni
+				identificadores publicitarios. La única medición es la analítica sin estado de <a href="#analitica">§ 5</a>, que no guarda nada en
+				tu dispositivo.
 			</adc-callout>
 
 			<h2 id="cookies-necesarias">2. Cookies necesarias</h2>
@@ -300,9 +303,15 @@ export function CookiesPage() {
 			<h2 id="analitica">5. Analítica</h2>
 			<p>
 				Usamos <strong>Cloudflare Web Analytics</strong>, que mide tráfico de forma agregada <strong>sin instalar cookies</strong> en tu
-				navegador y sin tracking publicitario. La métrica se basa en señales del proxy de Cloudflare, descrito también en{" "}
-				<a href="/privacy#infraestructura-y-subprocesadores">infraestructura y subprocesadores</a>. No cargamos ningún script de medición
-				en la página; de hecho, nuestra política de seguridad de contenido no autoriza scripts de analítica.
+				navegador y sin tracking publicitario. Cloudflare está descrito también en{" "}
+				<a href="/privacy#infraestructura-y-subprocesadores">infraestructura y subprocesadores</a>.
+			</p>
+			<p>
+				Para medir, el proxy de Cloudflare inserta en nuestras páginas un pequeño script suyo (<code>static.cloudflareinsights.com</code>),
+				que reporta la visita a Cloudflare. Es analítica <strong>sin estado</strong>: no escribe cookies ni ninguna otra clave en tu equipo,
+				no crea un identificador que te siga entre visitas y no alimenta perfiles publicitarios. Por no guardar nada en tu dispositivo, no
+				entra en el supuesto de consentimiento previo del art. 5.3 de la Directiva ePrivacy. Si bloqueás scripts de terceros con una
+				extensión, el sitio funciona igual: la medición simplemente no ocurre.
 			</p>
 
 			<h2 id="terceros">6. Terceros que tu navegador puede contactar</h2>
@@ -320,6 +329,17 @@ export function CookiesPage() {
 						</tr>
 					</thead>
 					<tbody>
+						<tr>
+							<td>Cloudflare (analítica)</td>
+							<td>
+								<strong>Sin que hagas nada</strong>, en todas las páginas: el proxy inserta su script de medición desde{" "}
+								<code>static.cloudflareinsights.com</code> y éste reporta la visita a <code>cloudflareinsights.com</code>.
+							</td>
+							<td>
+								Tu IP, tu navegador y la página visitada, más métricas de rendimiento de la carga. No escribe cookies ni ningún
+								identificador persistente en tu equipo.
+							</td>
+						</tr>
 						<tr>
 							<td>YouTube (Google)</td>
 							<td>
@@ -356,8 +376,9 @@ export function CookiesPage() {
 				cuenta. No se genera nada ni se consulta a nadie.
 			</p>
 			<adc-callout tone="warning" role="note">
-				De esa lista, dos pueden contactarse sin que vos hagas nada: el CDN de Discord, siempre que la página muestre una de esas fotos, y
-				el CDN de módulos, según cómo cargue cada app. YouTube, en cambio, no se contacta hasta que apretás reproducir. Servir esas
+				De esa lista, tres pueden contactarse sin que vos hagas nada: la analítica de Cloudflare, en todas las páginas; el CDN de Discord,
+				siempre que la página muestre una de esas fotos; y el CDN de módulos, según cómo cargue cada app. YouTube, en cambio, no se
+				contacta hasta que apretás reproducir. Servir esas
 				fotos desde nuestra propia infraestructura, como ya hacemos con los avatares por defecto, y auto-hospedar las librerías de
 				React son trabajos pendientes que se siguen en el{" "}
 				<a href="/roadmap#capa-de-transparencia-operaciones">roadmap</a>.
@@ -365,8 +386,9 @@ export function CookiesPage() {
 
 			<h2 id="cookies-opcionales">7. Cookies opcionales</h2>
 			<p>
-				En la fase actual del sitio principal no se incorporan cookies analíticas, de marketing ni de terceros que requieran
-				consentimiento; por eso no vas a ver un banner de consentimiento. El subdominio <code>games</code> incorporará publicidad; si esa
+				En la fase actual del sitio principal no se incorporan cookies ni identificadores de marketing, ni ninguna tecnología que guarde
+				datos en tu equipo y requiera consentimiento previo —la analítica de <a href="#analitica">§ 5</a> no guarda nada—; por eso no vas
+				a ver un banner de consentimiento. El subdominio <code>games</code> incorporará publicidad; si esa
 				publicidad usa cookies, identificadores o proveedores de medición, se publicará un aviso específico y se solicitará consentimiento
 				cuando corresponda antes de activarlos. La regla de subdominios con avisos propios está en los{" "}
 				<a href="/terms#subdominios-con-reglas-propias">términos</a> y el trabajo pendiente se sigue en el{" "}

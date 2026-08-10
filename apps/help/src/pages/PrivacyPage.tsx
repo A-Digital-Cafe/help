@@ -11,11 +11,14 @@ export function PrivacyPage() {
 			standards={["Ley 25.326", "GDPR"]}
 			declaration="policy"
 			lastUpdated={LEGAL_DOCUMENTS.privacy.version}
+			legalDocId="privacy"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Privacidad" }]}
 		>
 			<h2 id="responsable">1. Responsable</h2>
 			<p>
-				El sitio es operado por <strong>{OPERATOR.legalName}</strong>, CUIT: <strong>{OPERATOR.taxId}</strong>, {OPERATOR.country},{" "}
+				El sitio es operado por <strong>{OPERATOR.legalName}</strong>, CUIT: <strong>{OPERATOR.taxId}</strong>
+				{OPERATOR.taxStatus ? `, ${OPERATOR.taxStatus}` : ""}, con domicilio en{" "}
+				<strong>{OPERATOR.address ? `${OPERATOR.address}, ${OPERATOR.country}` : OPERATOR.country}</strong>,{" "}
 				<a href={`mailto:${CONTACTS.email}`}>{CONTACTS.email}</a>, <a href={OPERATOR.phoneHref}>{OPERATOR.phone}</a> bajo el nombre
 				comercial <strong>Abby's Digital Cafe (ADC)</strong>. Para consultas sobre privacidad o ejercicio de derechos puedes escribir a{" "}
 				<strong>
@@ -147,16 +150,72 @@ export function PrivacyPage() {
 
 			<adc-callout tone="info" role="note">
 				No utilizamos los datos personales del sitio principal para tracking publicitario, ni los vendemos o alquilamos a terceros, ni
-				hacemos perfilado para terceros. El subdominio <code>games</code> incorporará publicidad y no queda cubierto por esta afirmación
-				sobre el sitio principal; sus <a href="/cookies#cookies-opcionales">proveedores, cookies o identificadores</a> se documentarán
-				por separado antes de activarlos.
+				hacemos perfilado para terceros.
 			</adc-callout>
+			<h3 id="publicidad-en-games">3.2. Publicidad en el subdominio <code>games</code></h3>
+			<p>
+				El subdominio <code>games</code> <strong>todavía no está en servicio</strong>. Cuando se lance, incorporará publicidad — y eso lo
+				convierte en el único rincón de la plataforma donde intervienen terceros con intereses propios sobre tus datos. Estos son los
+				límites que asumimos <strong>ahora</strong>, antes de negociar con ningún proveedor, porque después son caros de sostener:
+			</p>
+			<ul>
+				<li>
+					<strong>Nada de publicidad personalizada a personas menores de edad.</strong> No perfilamos ni segmentamos anuncios en función
+					de datos de una persona que declaró ser menor. La publicidad que vean, si la ven, será contextual: depende del juego que están
+					mirando, no de quiénes son.
+				</li>
+				<li>
+					<strong>Los datos de tu cuenta de ADC no se comparten con proveedores publicitarios.</strong> Tu identificador, tu email, tu
+					plan, tu contenido y tu actividad en el resto de la plataforma se quedan de este lado. <code>games</code> no es una ventana a
+					tu cuenta.
+				</li>
+				<li>
+					<strong>Ninguna cookie ni identificador publicitario se activa sin tu consentimiento previo</strong>, pedido con un rechazo{" "}
+					<strong>tan accesible como la aceptación</strong> —mismo lugar, mismo tamaño, mismo número de clics— y revocable después en
+					cualquier momento. Hasta que aceptes, no se escribe nada en tu dispositivo más allá de lo estrictamente necesario para que la
+					página funcione.
+				</li>
+				<li>
+					<strong>Cada proveedor se publica antes de activarse</strong>, con su función y su jurisdicción, en la tabla de{" "}
+					<a href="#infraestructura-y-subprocesadores">§7</a> y en la{" "}
+					<a href="/cookies#cookies-opcionales">política de cookies</a> — no después, ni “en cuanto podamos”.
+				</li>
+			</ul>
+			<p>
+				Estos cuatro puntos son un <strong>compromiso propio</strong>, no una obligación que nos caiga encima: el art. 28.2 del
+				Reglamento de Servicios Digitales europeo, que prohíbe la publicidad basada en perfilado dirigida a menores, exime a las
+				empresas pequeñas por su art. 19.1. Los adoptamos igual, porque la alternativa —hacerlo porque se puede— es exactamente lo que
+				el <a href="/ethics">código de ética</a> dice que no hacemos.
+			</p>
 
 			<h2 id="tus-derechos">4. Tus derechos</h2>
 			<p>
 				Puedes ejercer derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad escribiendo a los canales
 				indicados en <a href="#responsable">§1</a>. El ejercicio de estos derechos es <strong>gratuito</strong>.
 			</p>
+			<p>Varios de estos derechos los podés ejercer directamente desde tu propia cuenta, sin escribirnos:</p>
+			<ul>
+				<li>
+					<strong>Acceso y portabilidad</strong> (art. 14 Ley 25.326; arts. 15 y 20 RGPD): desde la configuración de tu cuenta podés
+					descargar una copia de tus datos en un archivo <strong>JSON estructurado, de uso común y legible por máquina</strong>: perfil,
+					sesiones activas, metadatos de tus archivos y carpetas, correo, tickets de soporte, notificaciones, suscripción y pagos, y
+					contenido publicado. Los binarios —los archivos de Drive, los adjuntos de correo, las imágenes— no viajan dentro del JSON: se
+					descargan desde cada aplicación, y el propio archivo lo declara en cada sección, igual que declara qué quedó fuera o truncado.
+					Para prevenir abuso se puede generar como máximo un export por día.
+				</li>
+				<li>
+					<strong>Rectificación</strong> (art. 16 Ley 25.326; art. 16 RGPD): el email, el nombre de usuario y los datos de facturación
+					se corrigen desde la propia cuenta. El cambio de email se confirma desde la casilla nueva —así probamos que es tuya— y
+					avisamos de inmediato a la anterior. Mientras no tengamos habilitado el envío de correo a otros proveedores sólo podemos
+					verificar direcciones de la propia plataforma; si necesitás usar una casilla externa, pedilo por los canales de{" "}
+					<a href="#responsable">§1</a> o con un ticket de tipo <strong>“Datos”</strong> y lo hacemos nosotros dentro de los plazos de
+					más abajo. Cambiar el nombre de usuario cambia también tu dirección de correo de la plataforma, que se deriva de él:
+					conservamos las direcciones anteriores de tu buzón —sólo la dirección y la fecha del cambio— para que un correo ya enviado
+					siga siendo atribuible a su remitente, y se borran junto con tu cuenta. Los datos de facturación corregidos aplican sólo a
+					los comprobantes futuros — los ya emitidos son inmutables por normativa fiscal—. Para todo lo que no tenga un control propio
+					en la cuenta valen los canales de <a href="#responsable">§1</a>.
+				</li>
+			</ul>
 			<p>
 				Como el responsable está establecido en Argentina, aplicamos los plazos de la{" "}
 				<strong>Ley 25.326 de Protección de los Datos Personales</strong>, que son más breves que los del RGPD:
@@ -183,6 +242,14 @@ export function PrivacyPage() {
 				</a>
 				—. Si residís en la Unión Europea, podés además acudir a la autoridad de control de tu país.
 			</p>
+			<adc-callout tone="info" role="note">
+				<strong>
+					“LA AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución
+					de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las
+					normas vigentes en materia de protección de datos personales.”
+				</strong>{" "}
+				Leyenda incluida en cumplimiento del art. 3° de la Resolución AAIP 14/2018, que reemplazó a la Disposición DNPDP 10/2008.
+			</adc-callout>
 
 			<h2 id="conservacion">5. Conservación</h2>
 			<p>Conservamos cada dato sólo el tiempo necesario para la finalidad para la que fue recogido. Los plazos concretos son:</p>
@@ -277,6 +344,34 @@ export function PrivacyPage() {
 							<td>Comprobantes fiscales y registros contables</td>
 							<td>El plazo que exige la normativa fiscal argentina, que sobrevive a la baja de la cuenta.</td>
 						</tr>
+						<tr>
+							<td>Datos fiscales de facturación (tras la baja)</td>
+							<td>
+								<strong>10 años</strong> desde la baja de la cuenta, por obligación fiscal (art. 33 Ley 11.683 y normativa de
+								ARCA): el país de residencia fiscal que declaraste y, si correspondía factura de exportación, el nombre, el
+								domicilio y la identificación fiscal que indicaste, junto con el país deducido por IP como constancia de la
+								operación. Se archivan <strong>separados del resto de tus datos</strong>, sin acceso desde la aplicación, y se
+								eliminan de forma automática al vencer el plazo.
+							</td>
+						</tr>
+						<tr>
+							<td>Constancia de aceptación de los documentos legales (tras la baja)</td>
+							<td>
+								<strong>5 años</strong> desde la baja, <strong>anonimizada</strong>: qué versión de los Términos y de esta política
+								se aceptó, cuándo y por qué vía — sin email, sin nombre de usuario y sin IP; el vínculo con tu identidad se
+								reemplaza por un código no reversible—. La base es la defensa ante reclamaciones mientras corre el plazo genérico
+								de prescripción (art. 2560 CCyC), y el registro se elimina de forma automática al vencer.
+							</td>
+						</tr>
+						<tr>
+							<td>Registro de auditoría de acciones administrativas</td>
+							<td>
+								<strong>2 años</strong>. Las acciones sensibles sobre cuentas y datos —recuperaciones, bajas y reactivaciones,
+								exports, cambios de email o de facturación— dejan constancia de quién hizo qué y cuándo, con identificadores y
+								fechas pero sin emails ni IPs. Es accesible sólo para la administración global y se elimina de forma automática al
+								vencer el plazo.
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -306,7 +401,15 @@ export function PrivacyPage() {
 			</p>
 			<p>
 				<strong>Cuentas baneadas o eliminadas:</strong> se conservan durante <strong>30 días</strong> desde el evento (ban o solicitud de
-				borrado) y luego se eliminan automáticamente.
+				borrado) y luego se eliminan automáticamente. Si la baja la pediste vos, durante esos 30 días podés{" "}
+				<strong>arrepentirte y cancelarla</strong>, y no depende de que te llegue ningún correo:{" "}
+				<strong>volver a iniciar sesión cancela la baja</strong>, con tu contraseña o con el proveedor que uses para entrar. También
+				sirve el enlace incluido en el aviso que te enviamos al registrar el pedido; y si ese aviso no se pudo entregar, te mostramos el
+				enlace en pantalla en ese mismo momento para que lo guardes. Registrar tu pedido de baja nunca queda condicionado a que podamos
+				enviarte el aviso. Cancelada la baja, la cuenta se reactiva tal como estaba; si la cancelación llega justo cuando la
+				eliminación ya comenzó, la cuenta se conserva pero lo ya eliminado no se restaura. Vencido el plazo, la eliminación es
+				definitiva y sólo sobreviven los archivos con plazo propio de la tabla de arriba: la constancia de aceptación anonimizada y los
+				datos fiscales.
 			</p>
 			<p>
 				<strong>Lista anti-evasión.</strong> Para que una cuenta sancionada no vuelva creando otra, cada bloqueo deja un registro que,{" "}
@@ -365,7 +468,14 @@ export function PrivacyPage() {
 							<td>CDN y proxy inverso, WAF, protección DDoS, geofiltro por país y Web Analytics sin cookies.</td>
 							<td>IP, metadatos de la conexión (ruta, agente de usuario, país) y métricas agregadas de tráfico.</td>
 							<td>EE. UU. y red global de nodos de borde.</td>
-							<td>Encargado de tratamiento. DPA y cláusulas contractuales tipo del proveedor.</td>
+							<td>
+								Encargado de tratamiento.{" "}
+								<a href="https://www.cloudflare.com/cloudflare-customer-dpa/" rel="noreferrer">
+									DPA del proveedor
+								</a>{" "}
+								con cláusulas contractuales de protección de datos — garantía contractual del art. 12, Ley 25.326 (ver{" "}
+								<a href="#transferencias-internacionales">§8</a>).
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -374,7 +484,14 @@ export function PrivacyPage() {
 							<td>Base de datos gestionada donde se persisten los datos de la plataforma.</td>
 							<td>Datos de cuenta, metadatos de archivos y correo, tickets, suscripciones, registros de moderación.</td>
 							<td>Región del clúster contratado.</td>
-							<td>Encargado de tratamiento. DPA y cláusulas contractuales tipo del proveedor.</td>
+							<td>
+								Encargado de tratamiento.{" "}
+								<a href="https://www.mongodb.com/legal/data-processing-agreement" rel="noreferrer">
+									DPA del proveedor
+								</a>{" "}
+								con cláusulas contractuales de protección de datos — garantía contractual del art. 12, Ley 25.326 (ver{" "}
+								<a href="#transferencias-internacionales">§8</a>).
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -441,6 +558,13 @@ export function PrivacyPage() {
 				vigor.
 			</p>
 			<p>
+				<strong>Si tu organización contrata un plan de equipo</strong>, los datos que ella administra en la plataforma los tratamos como{" "}
+				<strong>encargado de tratamiento</strong> por cuenta de la organización. Las condiciones de ese encargo —instrucciones,
+				subencargados autorizados, seguridad, incidentes, auditorías y supresión al terminar— están en el{" "}
+				<a href="/dpa">Acuerdo de Tratamiento de Datos (DPA)</a>, que se aplica automáticamente al contratar el plan, sin firma
+				separada.
+			</p>
+			<p>
 				Para expresar los precios en pesos consultamos la <strong>cotización oficial del Banco Central de la República Argentina</strong>{" "}
 				(BCRA). Es una consulta pública que hace nuestro servidor a la API del BCRA: no viajan en ella datos personales tuyos —ni tu IP—,
 				por eso el BCRA no figura en la tabla como subprocesador. De esa consulta guardamos, junto a tu contratación, el valor de la
@@ -470,8 +594,22 @@ export function PrivacyPage() {
 			<p>
 				Lo que sí implica transferencia internacional es el uso de los proveedores listados en{" "}
 				<a href="#infraestructura-y-subprocesadores">§7</a> que operan fuera de Argentina —Cloudflare, MongoDB Atlas y, si elegís usarlos,
-				Discord, Google o PayPal—. Cada uno figura en la tabla con su jurisdicción y la garantía concreta que aplica: DPA y cláusulas
-				contractuales tipo para quienes actúan como encargados nuestros, y sus propias políticas para quienes son responsables autónomos.
+				Discord, Google o PayPal—. Cada uno figura en la tabla con su jurisdicción y la garantía concreta que aplica.
+			</p>
+			<p>
+				Cuando enviamos datos desde Argentina a encargados nuestros radicados en países que la normativa argentina no considera de nivel
+				adecuado (<strong>Cloudflare, Inc.</strong> y <strong>MongoDB, Inc.</strong>, en EE. UU.), la transferencia se ampara en la vía de{" "}
+				<strong>garantías contractuales</strong> que admiten el art. 12 de la Ley 25.326 y su reglamentación (Decreto 1558/2001): el
+				acuerdo de tratamiento de datos (DPA) vigente con cada proveedor —enlazado en la tabla de{" "}
+				<a href="#infraestructura-y-subprocesadores">§7</a>—, que incorpora cláusulas contractuales de protección de datos cuya
+				equivalencia con los modelos aprobados por la autoridad argentina (Disposición DNPDP 60-E/2016 y Resolución AAIP 198/2023)
+				documentamos y revisamos internamente. No usamos el texto literal de esos modelos: los proveedores de autoservicio no firman
+				contratos bilaterales a medida, y preferimos decirlo a aparentar lo contrario.
+			</p>
+			<p>
+				Discord, Google y PayPal no tratan datos por nuestra cuenta: son <strong>responsables autónomos</strong> que sólo intervienen si
+				elegís ese acceso o ese medio de pago. En esos casos la transferencia la iniciás vos con tu elección, y se rige por las políticas
+				de cada proveedor.
 			</p>
 
 			<h2 id="geofiltro-por-pais">9. Geofiltro por país</h2>
@@ -481,13 +619,91 @@ export function PrivacyPage() {
 				<a href="/values#geofiltro-activo">Valores y Espacio Seguro</a>.
 			</p>
 
-			<h2 id="incidentes">10. Incidentes</h2>
+			<h2 id="menores">10. Menores de edad</h2>
 			<p>
-				Trabajamos en formalizar un proceso interno de respuesta a incidentes que afecten datos personales. Hasta entonces, si detectas o
-				sufres un incidente, repórtalo por los canales de <a href="/contact#canales">contacto</a>.
+				La edad mínima general para tener una cuenta es de <strong>13 años</strong>. En varios países rige una edad mayor: la tabla
+				país por país está en los <a href="/terms#edad-minima">Términos y Condiciones</a> y forma parte de lo que aceptás al
+				registrarte. La edad se declara al crear la cuenta;{" "}
+				<strong>no la verificamos con documentación</strong>, así que la declaración es responsabilidad de quien se registra.
+			</p>
+			<p>
+				<strong>Si ejercés la responsabilidad parental o la tutela de un menor</strong> y querés que eliminemos su cuenta y sus datos,
+				o que retiremos algo que publicó, podés pedirlo sin tener cuenta en ADC, por cualquiera de estas dos vías:
+			</p>
+			<ul>
+				<li>
+					un ticket de tipo <strong>“Menor de edad”</strong> en{" "}
+					<adc-platform-link href="https://status.adigitalcafe.com/status/tickets">status.adigitalcafe.com</adc-platform-link>, que no
+					requiere iniciar sesión; o
+				</li>
+				<li>
+					un email a <a href={`mailto:${CONTACTS.email}`}>{CONTACTS.email}</a>.
+				</li>
+			</ul>
+			<p>
+				Indicanos el usuario o el email de la cuenta, tu vínculo con el menor y qué pedís. Respondemos dentro de los plazos de{" "}
+				<a href="#tus-derechos">§4</a> —10 días corridos para el acceso, 5 días hábiles para la supresión— contados desde que
+				recibimos la solicitud. Podemos pedirte elementos que acrediten el vínculo antes de ejecutar una supresión, porque borrar la
+				cuenta de otra persona sin verificar quién lo pide sería, en sí mismo, un riesgo para esa persona; ese pedido no suspende los
+				plazos más de lo imprescindible y te lo hacemos por el mismo canal.
+			</p>
+			<p>
+				<strong>Si detectamos una cuenta por debajo de la edad mínima aplicable</strong>, la suspendemos y damos un plazo razonable
+				para que quien ejerza la responsabilidad parental se comunique. Si nadie lo hace, eliminamos la cuenta y sus datos con las
+				reglas de <a href="#conservacion">§5</a>. No usamos los datos de una cuenta suspendida por esta causa para ninguna otra
+				finalidad.
 			</p>
 
-			<h2 id="contenido-de-usuarios-y-solicitudes-de-terceros">11. Contenido subido por usuarios y solicitudes de terceros</h2>
+			<h2 id="incidentes">11. Incidentes de seguridad que afectan datos personales</h2>
+			<p>
+				Un incidente es cualquier violación de la seguridad que provoque la destrucción, la pérdida, la alteración o el acceso no
+				autorizado a datos personales. <strong>La obligación de avisar es nuestra</strong>: si pasa algo, no esperamos a que lo
+				descubras vos. Estos son los compromisos concretos, con sus plazos.
+			</p>
+			<p>
+				<strong>Aviso a la autoridad de control: 72 horas.</strong> Desde que tenemos constancia de un incidente que suponga un riesgo
+				para tus derechos, lo notificamos dentro de las <strong>72 horas</strong> a la{" "}
+				<strong>Agencia de Acceso a la Información Pública</strong> —y, cuando el caso quede alcanzado por el RGPD, a la autoridad de
+				control europea que corresponda—. Si en ese plazo todavía no tenemos el cuadro completo, notificamos igual con lo que sabemos y
+				completamos después: el plazo corre sobre el aviso, no sobre la investigación terminada. Si pasadas las 72 horas no habíamos
+				notificado, la notificación va acompañada de los motivos de la demora.
+			</p>
+			<p>
+				<strong>Aviso a las personas afectadas: sin dilación indebida.</strong> Cuando el incidente entrañe un{" "}
+				<strong>riesgo alto</strong> para tus derechos, te avisamos <strong>a vos</strong>, en lenguaje claro y por los canales de aviso
+				de tu cuenta. El aviso te dice, como mínimo: qué pasó y cuándo, qué categorías de datos tuyos están involucradas, qué
+				consecuencias probables tiene, qué hicimos para contenerlo, qué te recomendamos hacer y a quién escribir para preguntar. No te
+				vamos a avisar con un comunicado genérico si podemos identificar a quién le pasó.
+			</p>
+			<p>
+				<strong>Las tres excepciones, dichas de frente.</strong> Podemos no avisarte individualmente si (a) los datos afectados estaban{" "}
+				<strong>cifrados</strong> de forma que sigan siendo ininteligibles para quien accedió —el caso de los archivos de Drive y de las
+				credenciales de unidades remotas, ver <a href="#seguridad">§6</a>—, (b) tomamos después medidas que hacen que el riesgo alto ya no
+				pueda materializarse, o (c) hacerlo supone un esfuerzo desproporcionado, y en ese caso lo reemplazamos por una{" "}
+				<strong>comunicación pública</strong> en{" "}
+				<adc-platform-link href="https://status.adigitalcafe.com">status.adigitalcafe.com</adc-platform-link> igual de efectiva. Ninguna
+				de las tres nos exime de notificar a la autoridad.
+			</p>
+			<p>
+				<strong>Registro interno de incidentes.</strong> Documentamos <strong>todos</strong> los incidentes —también los que no llegan a
+				notificarse— con los hechos, sus efectos y las medidas correctivas adoptadas. Ese registro existe para que la autoridad pueda
+				verificar que el criterio con el que decidimos no avisar fue el correcto, y para que la decisión de no notificar tenga que
+				escribirse en algún lado en vez de quedar en la cabeza de alguien.
+			</p>
+			<adc-callout tone="info" role="note">
+				<strong>Por qué prometemos esto si la ley argentina no lo exige.</strong> La Ley 25.326 no impone un deber de notificar
+				violaciones de datos: la <strong>Resolución AAIP 47/2018</strong> lo recomienda como medida de seguridad, no lo obliga. Los
+				plazos y contenidos de arriba son los de los <strong>arts. 33 y 34 del RGPD</strong>, y los adoptamos como compromiso propio para
+				todas las personas usuarias, vivan donde vivan. Nos parece que la alternativa —enterarte por un tercero— no es defendible aunque
+				sea legal.
+			</adc-callout>
+			<p>
+				<strong>Si el que detecta algo sos vos:</strong> reportalo por los <a href="/contact#canales">canales de contacto</a> o, si se
+				trata de una vulnerabilidad, por el <adc-platform-link href="https://status.adigitalcafe.com/status/bounty">programa de
+				divulgación responsable</adc-platform-link>. Ese canal es adicional a nuestro deber de avisar, no un reemplazo.
+			</p>
+
+			<h2 id="contenido-de-usuarios-y-solicitudes-de-terceros">12. Contenido subido por usuarios y solicitudes de terceros</h2>
 			<p>
 				Las apps de la plataforma (Drive, adjuntos de proyectos y artículos, correo) permiten subir y compartir archivos. Ese contenido es{" "}
 				<strong>responsabilidad de quien lo sube</strong>: nosotros lo almacenamos por cuenta del usuario y no lo revisamos de forma
@@ -496,12 +712,19 @@ export function PrivacyPage() {
 			</p>
 			<p>
 				Si sos un <strong>tercero</strong> y considerás que un archivo compartido (por ejemplo, mediante un enlace público de Drive) afecta
-				tus datos personales o tus derechos, podés solicitar su revisión o retiro creando un ticket de tipo <strong>“Datos”</strong> en la
+				tus datos personales o tus derechos, podés solicitar su revisión o retiro <strong>sin tener cuenta</strong>: con el botón{" "}
+				<em>“Reportar este contenido”</em> de la propia página del enlace, o creando un ticket de tipo <strong>“Datos”</strong> en la
 				sección <em>Tickets de Soporte</em> de{" "}
 				<adc-platform-link href="https://status.adigitalcafe.com/status/tickets">status.adigitalcafe.com</adc-platform-link>{" "}
 				incluyendo el enlace al contenido y el motivo. Tratamos estas solicitudes en un plazo máximo de <strong>30 días</strong>;
-				mientras se evalúan podemos suspender preventivamente el acceso al contenido reportado. Esto también canaliza solicitudes GDPR de
-				acceso, rectificación o supresión sobre datos tratados por terceros dentro de la plataforma.
+				mientras se evalúan podemos suspender preventivamente el acceso al contenido reportado. Esto también canaliza solicitudes de derechos (Ley
+				25.326 / RGPD) de acceso, rectificación o supresión sobre datos tratados por terceros dentro de la plataforma.
+			</p>
+			<p>
+				Si tu reclamo es por <strong>derechos de autor o propiedad intelectual</strong>, el procedimiento completo —qué debe contener la
+				notificación, nuestros plazos de acuse y decisión, y el derecho de quien subió el contenido a contranotificar antes de que la
+				decisión quede firme— está en{" "}
+				<a href="/terms#reclamos-propiedad-intelectual">Términos § 6.1</a>.
 			</p>
 		</PageShell>
 	);

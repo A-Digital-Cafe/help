@@ -11,11 +11,14 @@ export function TermsPage() {
 			subtitle="Reglas básicas de uso del sitio y la comunidad."
 			declaration="policy"
 			lastUpdated={LEGAL_DOCUMENTS.terms.version}
+			legalDocId="terms"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Términos" }]}
 		>
 			<h2 id="quien-ofrece-el-servicio">0. Quién ofrece el servicio</h2>
 			<p>
-				El servicio lo ofrece <strong>{OPERATOR.legalName}</strong>, CUIT {OPERATOR.taxId}, {OPERATOR.country}, bajo el nombre comercial{" "}
+				El servicio lo ofrece <strong>{OPERATOR.legalName}</strong>, CUIT {OPERATOR.taxId}
+				{OPERATOR.taxStatus ? `, ${OPERATOR.taxStatus}` : ""}, con domicilio en{" "}
+				<strong>{OPERATOR.address ? `${OPERATOR.address}, ${OPERATOR.country}` : OPERATOR.country}</strong>, bajo el nombre comercial{" "}
 				<strong>Abby's Digital Cafe (ADC)</strong>. Los datos completos de identificación y contacto están en{" "}
 				<a href="/privacy#responsable">Privacidad § 1 Responsable</a>. Al contratar o usar la plataforma, contratás con esa persona.
 			</p>
@@ -41,9 +44,19 @@ export function TermsPage() {
 
 			<h2 id="edad-minima">3. Edad mínima</h2>
 			<p>
-				La edad mínima general para usar la plataforma es <strong>13 años</strong>. En algunos países aplicamos una edad mayor, tomando
-				como referencia el criterio público usado por plataformas como Discord. Si tu país no aparece en la lista, aplica la regla
-				general de 13+.
+				La edad mínima general para usar la plataforma es <strong>13 años</strong>. En los países listados abajo rige la edad mayor que
+				indique la tabla, tomando como referencia el criterio público usado por plataformas como Discord; si tu país no aparece, rige
+				la regla general de 13+. Al registrarte <strong>declarás cumplir la edad que te corresponda</strong>: no la verificamos con
+				documentación.
+			</p>
+			<p>
+				<strong>Para contratar un plan pago</strong> tenés que ser mayor de edad o contar con la autorización de quien ejerza tu
+				responsabilidad parental, y al contratar declarás ser titular del medio de pago que uses.
+			</p>
+			<p>
+				Quien ejerza la responsabilidad parental o la tutela de un menor puede pedir la eliminación de su cuenta o el retiro de un
+				contenido <strong>sin necesidad de tener cuenta en ADC</strong>: el canal, qué informar y los plazos están en la{" "}
+				<a href="/privacy#menores">política de privacidad</a>.
 			</p>
 			<details>
 				<summary>Ver edades mínimas por país o región</summary>
@@ -95,6 +108,21 @@ export function TermsPage() {
 				escribiendo a los <a href="/contact#canales">canales de contacto</a>: la revisa una persona y te contestamos por el mismo canal.
 				Si la medida no correspondía, la levantamos.
 			</adc-callout>
+			<p id="retiro-automatico">
+				<strong>Un caso se resuelve sin intervención humana: la coincidencia exacta de huella digital.</strong> Cuando un archivo se
+				retira —por una notificación fundada o por figurar en una base pública de programas maliciosos— guardamos su{" "}
+				<strong>huella criptográfica</strong> (un SHA-256 del contenido), no el archivo. Un proceso en segundo plano calcula esa misma
+				huella sobre el contenido ya alojado y, si coincide <strong>byte por byte</strong> con una de la lista, retira el acceso a ese
+				archivo y te avisa en el acto con el motivo. También se rechaza la subida de un archivo cuya huella ya esté en la lista.
+			</p>
+			<p>
+				Es automático porque no hay nada que juzgar: no se analiza de qué trata el archivo, no se lo clasifica ni se lo interpreta —
+				sólo se compara un número con una lista. Alcanza al <strong>archivo</strong>, nunca a la cuenta: una coincidencia no suspende
+				tu cuenta ni cuenta como antecedente para la <a href="#contenido">política de reincidencia de § 6</a>. Y tenés la
+				misma revisión que cualquier otra medida: si creés que hubo un error, pedila por los canales de esta sección y la mira una
+				persona. Es lo que el art. 22 del RGPD llama derecho a la intervención humana, y acá aplica aunque el retiro haya sido
+				automático.
+			</p>
 			<p>
 				Una cuenta restringida o suspendida <strong>no pierde datos</strong> y no deja de tener derechos: mientras dure la medida podés
 				pedir una copia de tus datos, su rectificación o su supresión por los <a href="/contact#canales">canales de contacto</a>, con los
@@ -168,10 +196,98 @@ export function TermsPage() {
 				almacenamiento para material ilegal, que infrinja derechos de terceros o que viole las{" "}
 				<a href="#conductas-prohibidas">conductas prohibidas</a>. El espacio disponible depende de tu plan o del de tu organización.
 				Podemos suspender el acceso a contenido reportado mientras se evalúa una solicitud de retiro: cualquier persona puede reportar
-				contenido mediante un ticket de tipo <strong>“Datos”</strong> en{" "}
+				contenido con el botón <em>“Reportar este contenido”</em> de la página del enlace público, o mediante un ticket de tipo{" "}
+				<strong>“Datos”</strong> en{" "}
 				<adc-platform-link href="https://status.adigitalcafe.com/status/tickets">status.adigitalcafe.com</adc-platform-link>{" "}
 				(ver <a href="/privacy#contenido-de-usuarios-y-solicitudes-de-terceros">política de privacidad</a>).
 			</p>
+			<p>
+				<strong>Qué pasa cuando suspendemos algo tuyo.</strong> La suspensión es preventiva y dura lo que dura la evaluación: te avisamos
+				por los canales de tu cuenta indicando el motivo y el ticket, y podés responder por ese mismo ticket. Si el reporte no prospera,
+				restablecemos el acceso y la suspensión no cuenta para nada. Suspender una carpeta suspende también su contenido.
+			</p>
+			<p>
+				<strong>Reincidencia.</strong> <strong>Tres suspensiones firmes</strong> —es decir, que no se hayan levantado tras tu descargo—
+				en <strong>12 meses</strong> habilitan la suspensión de la cuenta, con el mismo derecho de revisión de{" "}
+				<a href="#suspension-de-cuentas">§ 4.1</a>. Contamos suspensiones firmes, no reportes recibidos: un reporte infundado no te
+				perjudica.
+			</p>
+			<h3 id="reclamos-propiedad-intelectual">6.1. Reclamos por derechos de autor y propiedad intelectual</h3>
+			<p>
+				Si sos titular de un derecho de autor, una marca u otro derecho de propiedad intelectual —o actuás en su representación— y creés
+				que alguien subió a la plataforma contenido que lo vulnera, podés pedirnos que lo retiremos. No hace falta que tengas cuenta.
+			</p>
+			<p>
+				<strong>Cómo notificar.</strong> Por el botón <em>“Reportar este contenido”</em> de la página del enlace público, por un ticket de
+				tipo <strong>“Datos”</strong> en{" "}
+				<adc-platform-link href="https://status.adigitalcafe.com/status/tickets">status.adigitalcafe.com</adc-platform-link> o por los{" "}
+				<a href="/contact#canales">canales de contacto</a>. Para que podamos actuar, la notificación tiene que incluir:
+			</p>
+			<ul>
+				<li>
+					<strong>qué obra o derecho invocás</strong> y en qué te basás para ser su titular o representarlo;
+				</li>
+				<li>
+					<strong>el enlace exacto</strong> al contenido que pedís retirar —no “todo lo que suba esa cuenta”: sin una ubicación concreta
+					no hay nada que podamos identificar ni, por lo tanto, conocimiento efectivo que atribuirnos—;
+				</li>
+				<li>
+					<strong>por qué</strong> entendés que ese contenido vulnera tu derecho;
+				</li>
+				<li>
+					<strong>tus datos de contacto</strong>, para responderte y para trasladarlos a quien subió el contenido según el párrafo
+					siguiente;
+				</li>
+				<li>
+					una <strong>declaración de buena fe</strong> de que la información es veraz y de que el uso denunciado no está autorizado por
+					vos, por la ley ni por un límite al derecho que invocás.
+				</li>
+			</ul>
+			<p>
+				<strong>Nuestros plazos.</strong> Acusamos recibo dentro de los <strong>5 días hábiles</strong> y resolvemos dentro de los{" "}
+				<strong>30 días corridos</strong> desde que la notificación está completa. Mientras evaluamos podemos suspender preventivamente el
+				acceso al contenido, con las reglas de esta misma sección. Si la notificación está incompleta te lo decimos indicando qué falta, y
+				el plazo empieza a correr cuando lo completás.
+			</p>
+			<p id="contranotificacion">
+				<strong>Si el contenido reportado es tuyo, tenés derecho a defenderlo.</strong> Retirar algo por el solo pedido de un tercero, sin
+				oír a quien lo publicó, convierte este canal en una herramienta para silenciar a otro — y las notificaciones equivocadas,
+				exageradas o de mala fe existen. Por eso:
+			</p>
+			<ul>
+				<li>
+					<strong>Te decimos qué se reclamó y quién lo reclamó</strong>, no sólo que retiramos algo. Te trasladamos el contenido de la
+					notificación y la identidad de quien la hizo, porque sin saber qué se te imputa no podés responder. Quien notifica lo sabe de
+					antemano: está dicho en el propio formulario.
+				</li>
+				<li>
+					<strong>Podés contranotificar</strong> dentro de los <strong>10 días hábiles</strong> del aviso, por el mismo ticket, con tus
+					argumentos y —si los tenés— los elementos que acrediten tu autoría, tu licencia o el límite legal que te ampara (cita, parodia,
+					uso educativo, obra en dominio público).
+				</li>
+				<li>
+					<strong>Si contranotificás, restablecemos el acceso</strong>, salvo que de tu propia respuesta o de los elementos del caso surja
+					que el reclamo era fundado, o que quien notificó acredite haber iniciado una acción judicial sobre ese contenido. Que
+					restablezcamos no resuelve quién tiene razón: no somos un tribunal, y la disputa de fondo se dirime entre ustedes.
+				</li>
+				<li>
+					<strong>Un retiro revertido no cuenta como antecedente</strong> para la política de reincidencia de esta sección.
+				</li>
+			</ul>
+			<p>
+				<strong>Reincidencia y abuso del canal.</strong> Las suspensiones firmes por propiedad intelectual cuentan para el régimen de{" "}
+				<strong>tres suspensiones en 12 meses</strong> descrito arriba. Y la regla vale para los dos lados: quien use este canal de forma
+				sistemática para pedir retiros infundados o para hostigar a otra persona usuaria pierde el acceso a él, y podemos exigirle que
+				acredite su titularidad antes de tramitar futuras notificaciones.
+			</p>
+			<adc-callout tone="info" role="note">
+				<strong>Bajo qué ley actuamos.</strong> Aplicamos la <strong>Ley 11.723</strong> de propiedad intelectual y el estándar que fijó la
+				Corte Suprema argentina en <em>Rodríguez c/ Google</em> (2014): un intermediario no responde por el contenido de terceros{" "}
+				<strong>hasta que toma conocimiento efectivo</strong> de que es ilícito, y desde ese momento sí responde si no actúa. Eso es lo que
+				estos plazos existen para cumplir. <strong>No operamos bajo la DMCA</strong> ni tenemos agente designado ante la Oficina de
+				Derechos de Autor de EE. UU.: el responsable está establecido en Argentina y no tiene activos allá, así que una notificación
+				redactada como DMCA la vamos a tratar igual, pero según las reglas de esta sección.
+			</adc-callout>
 			<p>
 				<strong>Transferencias entre dispositivos y unidades remotas:</strong> el mismo régimen de responsabilidad aplica al contenido que
 				transfieras en vivo entre tus dispositivos con el túnel de Drive (que la plataforma retransmite sin almacenar) y al de las unidades
@@ -190,9 +306,18 @@ export function TermsPage() {
 
 			<h2 id="subdominios-con-reglas-propias">8. Subdominios con reglas propias</h2>
 			<p>
-				Algunos subdominios pueden tener condiciones, avisos o políticas adicionales por su función. El subdominio <code>games</code>{" "}
-				incorporará publicidad, por lo que tendrá documentación propia sobre proveedores,{" "}
-				<a href="/cookies#cookies-opcionales">cookies</a>, identificadores o consentimiento cuando la modalidad técnica esté definida.
+				Algunos subdominios pueden tener condiciones, avisos o políticas adicionales por su función. Esas condiciones{" "}
+				<strong>sólo pueden sumar</strong> a estos Términos: ningún subdominio puede reducir por su cuenta los derechos, los plazos ni los
+				compromisos que acá se asumen.
+			</p>
+			<p>
+				El subdominio <code>games</code> <strong>todavía no está en servicio</strong> y hoy sólo publica un aviso de construcción. Cuando
+				se lance incorporará publicidad y tendrá documentación propia sobre proveedores,{" "}
+				<a href="/cookies#cookies-opcionales">cookies</a>, identificadores y consentimiento. Lo que ya está decidido —y no queda librado a
+				esa documentación futura— son los cuatro límites de{" "}
+				<a href="/privacy#publicidad-en-games">Privacidad § 3.2</a>: nada de publicidad personalizada a menores, los datos de tu cuenta de
+				ADC no se comparten con proveedores publicitarios, ningún identificador publicitario sin consentimiento previo con rechazo
+				igual de accesible, y cada proveedor publicado antes de activarse.
 			</p>
 
 			<h2 id="disponibilidad">9. Disponibilidad</h2>
@@ -206,8 +331,15 @@ export function TermsPage() {
 				Si ese servicio no está disponible, las aplicaciones <strong>no se caen</strong>: siguen funcionando aplicando los límites del{" "}
 				<strong>plan base</strong> (el gratuito) hasta que se restablezca. Es una decisión deliberada de seguridad — preferimos quedar
 				cortos antes que liberar recursos sin control —, por lo que durante ese lapso una cuenta con plan pago puede ver límites
-				menores a los contratados de forma temporal. No implica pérdida del plan ni de datos: al restablecerse el servicio, los límites
-				vuelven solos. Estas incidencias se publican en la <a href="https://status.adigitalcafe.com">página de estado</a>.
+				menores a los contratados de forma temporal.
+			</p>
+			<p>
+				Lo que esa degradación <strong>sí</strong> hace es frenar el consumo nuevo: mientras dure, puede rechazarse una subida que con
+				tu plan entraría sin problema. Lo que <strong>no</strong> hace es tocar lo que ya tenés: todo tu contenido sigue accesible,
+				descargable y compartible aunque supere el límite base, y nada se borra ni se recorta por estar por encima. No implica pérdida
+				del plan ni de datos: al restablecerse el servicio, los límites vuelven solos. Cuando esto ocurre, las pantallas de
+				almacenamiento lo indican en vez de mostrar una cuota recortada sin explicación, y la incidencia se publica en la{" "}
+				<a href="https://status.adigitalcafe.com">página de estado</a>.
 			</p>
 
 			<h2 id="limitacion-de-responsabilidad">10. Limitación de responsabilidad</h2>
@@ -241,8 +373,10 @@ export function TermsPage() {
 			<p>
 				Y hay cosas de las que <strong>sí respondemos</strong>, porque son las que dependen de nosotros: aplicar las medidas de seguridad
 				descritas en <a href="/privacy#seguridad">Privacidad § 6</a>, respetar los plazos de conservación y de ejercicio de derechos que
-				publicamos, avisar de los incidentes de seguridad que te afecten y de los cambios que recorten beneficios de tu plan con la
-				antelación comprometida en <a href="#reevaluacion-anual">§ 11</a>.
+				publicamos, avisar de los incidentes de seguridad que te afecten —con los plazos concretos de{" "}
+				<a href="/privacy#incidentes">Privacidad § 11</a>: 72 horas a la autoridad de control y sin dilación indebida a vos cuando el
+				riesgo sea alto— y avisar de los cambios que recorten beneficios de tu plan con la antelación comprometida en{" "}
+				<a href="#reevaluacion-anual">§ 11</a>.
 			</p>
 
 			<h2 id="planes-y-beneficios">11. Planes, beneficios y su revisión</h2>

@@ -4,6 +4,7 @@ const HELP_PATHS = [
 	"/",
 	"/privacy",
 	"/cookies",
+	"/dpa",
 	"/terms",
 	"/values",
 	"/ethics",
@@ -19,6 +20,10 @@ const HELP_PAGE_META: Record<string, { title: string; description: string }> = {
 	"/": { title: "Ayuda", description: "Centro de ayuda, políticas y compromisos públicos de Abby's Digital Cafe." },
 	"/privacy": { title: "Política de privacidad", description: "Cómo recopilamos, usamos y protegemos tus datos personales en ADC." },
 	"/cookies": { title: "Política de cookies", description: "Qué cookies usamos y cómo gestionarlas en Abby's Digital Cafe." },
+	"/dpa": {
+		title: "Acuerdo de Tratamiento de Datos (DPA)",
+		description: "Condiciones bajo las que ADC trata datos personales por cuenta de organizaciones con plan de equipo.",
+	},
 	"/terms": { title: "Términos de servicio", description: "Condiciones de uso de la plataforma Abby's Digital Cafe." },
 	"/values": { title: "Nuestros valores", description: "Principios que guían el diseño y operación de ADC." },
 	"/ethics": { title: "Ética y compromisos", description: "Compromisos éticos públicos de Abby's Digital Cafe." },

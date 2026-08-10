@@ -94,7 +94,7 @@ const SECTIONS: HriaSection[] = [
 	{
 		id: "areas-de-impacto-en-derechos-humanos",
 		title: "3. Áreas de impacto en derechos humanos",
-		intro: "Las cuatro dimensiones que ADC evalúa de forma continua mientras la plataforma evoluciona.",
+		intro: "Las dimensiones de impacto que este HRIA cubre y que ADC se compromete a evaluar de forma continua a medida que la plataforma evoluciona; el estado de cada una es el que indica su badge.",
 		items: [
 			{
 				id: "q005",
@@ -120,6 +120,16 @@ const SECTIONS: HriaSection[] = [
 				question: "Riesgos de seguridad personal: doxxing, acoso, targeting, riesgo de detención por divulgación de datos.",
 				status: "planificado",
 				needed: "Mapear amenazas concretas, medidas antiabuso, respuesta a doxxing o acoso y límites de divulgación de datos sensibles.",
+			},
+			{
+				id: "q021",
+				question:
+					"Geofiltro por país: proporcionalidad de la medida, criterio documentado por país, acceso a las páginas legales y ejercicio de derechos desde países bloqueados.",
+				status: "en-redaccion",
+				needed:
+					"Excluir del bloqueo las páginas legales y de contacto, reemplazar la pantalla de error genérica por una que explique el motivo y dé un canal, y revisar la lista contra el criterio publicado en cada actualización.",
+				relatedHref: "/values#geofiltro-activo",
+				relatedLabel: "Ver geofiltro y lista por país",
 			},
 		],
 	},
@@ -213,16 +223,18 @@ export function HriaPage() {
 		<PageShell
 			title="Evaluación de Impacto en Derechos Humanos (HRIA)"
 			subtitle="Paso A del marco GNI: qué evaluamos y en qué estado está cada bloque."
-			standards={["GNI HRIA"]}
+			standards={["Evaluación de impacto (marco propio)"]}
 			declaration="commitment"
+			lastUpdated="2026-08-08"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Valores", href: "/values" }, { label: "HRIA" }]}
 		>
 			<p>
-				Esta página es la versión pública resumida del HRIA de Abby's Digital Cafe. Sigue el marco{" "}
+				Esta página es el checklist público del HRIA que Abby's Digital Cafe está construyendo sobre el marco{" "}
 				<a href="https://globalnetworkinitiative.org/" rel="noreferrer">
 					Global Network Initiative
-				</a>{" "}
-				y se refresca conforme avanza el trabajo interno. Cada bloque indica el estado real, sin prometer madurez que no exista.
+				</a>
+				{": "}todavía no existe un informe final, ni interno ni publicado. Cada bloque indica el estado real del trabajo, sin prometer
+				madurez que no exista, y se refresca conforme avanza.
 			</p>
 
 			<adc-callout tone="info" role="note">

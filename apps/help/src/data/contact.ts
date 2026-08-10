@@ -22,13 +22,26 @@ export const OPERATOR = {
 	legalName: publicEnv("operatorLegalName"),
 	taxId: publicEnv("operatorTaxId"),
 	country: publicEnv("operatorCountry"),
+	/**
+	 * Domicilio publicado. Vacío hasta que se cargue: las páginas lo omiten en vez de inventarlo,
+	 * y omitirlo es mejor que publicar uno falso — pero **es obligatorio** (ver la nota de
+	 * `public-env-vars.ts`), así que no debería quedar vacío en producción.
+	 */
+	address: publicEnv("operatorAddress"),
+	/** Condición frente al IVA. Sostiene la afirmación de "precio final" de § 11 de los Términos. */
+	taxStatus: publicEnv("operatorTaxStatus"),
 	phone: publicEnv("operatorPhone"),
 	get phoneHref(): string {
 		return `tel:${this.phone.replaceAll(/[^+\d]/g, "")}`;
 	},
 } as const;
 
-export const LAST_REVIEW = "2026-05-09";
+/**
+ * Fallback del pie de página cuando una página no pasa `lastUpdated` propio. Es la última versión
+ * general del sitio, NO la fecha de revisión de esa página: cada página debería pasar la suya
+ * (la fecha del último commit que la modificó).
+ */
+export const SITE_LAST_VERSION = "2026-08-08";
 
 export const BRAND = {
 	name: "Abby's Digital Cafe",

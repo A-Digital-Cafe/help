@@ -4,6 +4,7 @@ import { router } from "@common/utils/router.js";
 import { HomePage } from "./pages/HomePage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { CookiesPage } from "./pages/CookiesPage";
+import { DpaPage } from "./pages/DpaPage";
 import { TermsPage } from "./pages/TermsPage";
 import { ValuesPage } from "./pages/ValuesPage";
 import { EthicsPage } from "./pages/EthicsPage";
@@ -12,6 +13,7 @@ import { AuthorityRequestsPage } from "./pages/AuthorityRequestsPage";
 import { TransparencyPage } from "./pages/TransparencyPage";
 import { ContactPage } from "./pages/ContactPage";
 import { AcknowledgmentsPage } from "./pages/AcknowledgmentsPage";
+import { LicensesPage } from "./pages/LicensesPage";
 import { RoadmapPage } from "./pages/RoadmapPage";
 import { TeamPage } from "./pages/TeamPage";
 import { TutorialsPage } from "./pages/TutorialsPage";
@@ -22,6 +24,7 @@ const HELP_ROUTES = new Set([
 	"/",
 	"/privacy",
 	"/cookies",
+	"/dpa",
 	"/terms",
 	"/values",
 	"/ethics",
@@ -30,6 +33,7 @@ const HELP_ROUTES = new Set([
 	"/transparency",
 	"/contact",
 	"/acknowledgments",
+	"/licenses",
 	"/team",
 	"/roadmap",
 	"/tutorials",
@@ -81,6 +85,8 @@ function renderPage(path: string) {
 			return <PrivacyPage />;
 		case "/cookies":
 			return <CookiesPage />;
+		case "/dpa":
+			return <DpaPage />;
 		case "/terms":
 			return <TermsPage />;
 		case "/values":
@@ -97,6 +103,8 @@ function renderPage(path: string) {
 			return <ContactPage />;
 		case "/acknowledgments":
 			return <AcknowledgmentsPage />;
+		case "/licenses":
+			return <LicensesPage />;
 		case "/team":
 			return <TeamPage />;
 		case "/roadmap":

@@ -23,9 +23,9 @@ const LAYERS: Array<{ id: string; name: string; description: string; items: Item
 				links: [{ label: "Valores", href: "/values" }],
 			},
 			{
-				title: "GDPR básico + privacidad/cookies/términos",
+				title: "Documentos de privacidad, cookies y términos",
 				status: "done",
-				notes: "Páginas de privacidad, cookies y términos publicadas.",
+				notes: "Páginas de privacidad, cookies y términos publicadas y versionadas, con constancia de aceptación.",
 				links: [
 					{ label: "Privacidad", href: "/privacy" },
 					{ label: "Cookies", href: "/cookies" },
@@ -171,6 +171,7 @@ export function RoadmapPage() {
 			title="Roadmap de cumplimiento"
 			subtitle="Plan público por capas, agrupado para no duplicar trabajo."
 			declaration="informational"
+			lastUpdated="2026-08-07"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Roadmap" }]}
 		>
 			<p>

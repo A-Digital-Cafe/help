@@ -5,9 +5,12 @@ type Status = "aplicado" | "en-redaccion" | "planificado" | "no-iniciado";
 
 interface ReportItem {
 	title: string;
+	/** Estado de la MÉTRICA (si se publica), no del mecanismo subyacente. */
 	status: Status;
 	metric: string;
 	needed: string;
+	/** Badge extra para cuando el mecanismo está operativo pero la métrica no se publica aún. */
+	mechanismBadge?: string;
 	relatedHref?: string;
 	relatedLabel?: string;
 }
@@ -47,15 +50,17 @@ const REPORT_ITEMS: ReportItem[] = [
 		title: "Derechos de privacidad",
 		status: "planificado",
 		metric: "Solicitudes de acceso, rectificación, supresión, limitación, oposición o portabilidad en forma agregada.",
-		needed: "Cerrar el flujo público de derechos GDPR indicado en privacidad.",
+		needed: "Empezar a registrar de forma agregada las solicitudes de derechos (Ley 25.326 / RGPD) que llegan por los canales indicados en privacidad.",
 		relatedHref: "/privacy#tus-derechos",
 		relatedLabel: "Ver derechos de privacidad",
 	},
 	{
 		title: "Geofiltro y seguridad por país",
-		status: "aplicado",
+		status: "en-redaccion",
 		metric: "Cambios relevantes en la lista de países bloqueados, motivos generales y revisión de contexto.",
-		needed: "Lista publicada en valores y sincronizada con la regla activa de Cloudflare. Revisar periódicamente si el contexto de algún país cambia.",
+		needed:
+			"La lista, el motivo por país y la fecha de revisión ya se publican en valores; la lista se actualiza manualmente cuando cambia la regla de Cloudflare y puede haber demora entre la regla activa y la lista publicada. Falta publicar el histórico de cambios.",
+		mechanismBadge: "Filtro activo",
 		relatedHref: "/values#geofiltro-activo",
 		relatedLabel: "Ver geofiltro activo",
 	},
@@ -99,8 +104,9 @@ export function TransparencyPage() {
 		<PageShell
 			title="Reporte de transparencia"
 			subtitle="Paso C del marco GNI: qué publicar, con qué métricas y qué falta cerrar."
-			standards={["GNI Paso C", "Transparencia"]}
+			standards={["Paso C (marco propio)", "Transparencia"]}
 			declaration="commitment"
+			lastUpdated="2026-08-08"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Valores", href: "/values" }, { label: "Transparencia" }]}
 		>
 			<p>
@@ -123,6 +129,7 @@ export function TransparencyPage() {
 							<div className="flex flex-wrap items-center gap-2">
 								<strong>{item.title}</strong>
 								<adc-badge color={STATUS_COLOR[item.status]}>{STATUS_LABEL[item.status]}</adc-badge>
+								{item.mechanismBadge && <adc-badge color="green">{item.mechanismBadge}</adc-badge>}
 							</div>
 							<p className="mt-1">
 								<strong>Qué publicar:</strong> {item.metric}

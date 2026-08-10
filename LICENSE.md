@@ -41,7 +41,8 @@ redistribuirlo, publicarlo ni crear obras derivadas de ello:
 
 `apps/help/src/pages/PrivacyPage.tsx`, `TermsPage.tsx`, `CookiesPage.tsx`, `ValuesPage.tsx`,
 `EthicsPage.tsx`, `HriaPage.tsx`, `AuthorityRequestsPage.tsx`, `TransparencyPage.tsx`,
-`RoadmapPage.tsx` y `AcknowledgmentsPage.tsx`.
+`RoadmapPage.tsx` y `AcknowledgmentsPage.tsx`, más `apps/help/src/data/contact.ts`, que es donde
+viven esos datos de identificación y del que las páginas los leen.
 
 Estos documentos identifican a **una persona concreta como responsable del tratamiento**, con su
 nombre real, su CUIT y sus datos de contacto, y declaran compromisos que sólo obligan a quien los

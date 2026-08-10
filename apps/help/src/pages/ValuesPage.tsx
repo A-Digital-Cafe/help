@@ -1,6 +1,7 @@
 import "@ui-library/utils/react-jsx";
 import PageShell from "../components/PageShell";
-import { BLOCKED_COUNTRIES } from "../data/blocked-countries";
+import { BLOCKED_COUNTRIES, BLOCK_REASON_LABEL, LAST_REVIEWED } from "../data/blocked-countries";
+import { CONTACTS } from "../data/contact";
 
 type StepStatus = "publicado" | "en-redaccion" | "planificado";
 
@@ -21,7 +22,7 @@ const GNI_STEPS: Array<{ step: string; title: string; href: string; status: Step
 		step: "Paso A",
 		title: "HRIA — Evaluación de Impacto en Derechos Humanos",
 		href: "/hria",
-		status: "publicado",
+		status: "en-redaccion",
 		purpose: "Identificar impactos sobre privacidad, libertad de expresión, seguridad personal, discriminación y grupos vulnerables.",
 		where: "La página HRIA contiene el checklist público por bloque y estado.",
 		pending: "Completar evidencia, responsables, fuentes, decisiones y revisión periódica.",
@@ -51,9 +52,9 @@ export function ValuesPage() {
 		<PageShell
 			title="Valores y Espacio Seguro"
 			subtitle='ADC busca ser un "Espacio seguro para todos 🏳️‍🌈".'
-			standards={["GNI (HRIA)", "Derechos humanos"]}
+			standards={["Marco propio inspirado en GNI", "Derechos humanos"]}
 			declaration="commitment"
-			lastUpdated="2026-08-06"
+			lastUpdated="2026-08-08"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Valores" }]}
 		>
 			<h2 id="nuestros-valores">Nuestros valores</h2>
@@ -77,6 +78,11 @@ export function ValuesPage() {
 				Adoptamos como referencia los principios GNI sobre libertad de expresión y privacidad. Para que no quede como una lista
 				abstracta, cada paso tiene una página propia con qué se está documentando y qué falta cerrar.
 			</p>
+			<adc-callout tone="warning" role="note">
+				<strong>ADC no es miembro de la Global Network Initiative</strong> ni fue evaluada por su proceso de <em>assessment</em>{" "}
+				independiente. Los Pasos A, B y C son una organización <strong>propia</strong>, inspirada en sus principios: la numeración es
+				nuestra, no de la GNI, y no implica ninguna validación de su parte.
+			</adc-callout>
 			<div className="space-y-4">
 				{GNI_STEPS.map((item) => (
 					<section key={item.step} className="border-l-2 pl-3">
@@ -122,19 +128,33 @@ export function ValuesPage() {
 				<strong>bloquea el acceso desde los países listados abajo</strong> y aplica un <em>Managed Challenge</em> a bots o dispositivos
 				desconocidos. Esto es una decisión de prudencia hacia la comunidad, no un juicio sobre las personas que viven en esos lugares.
 			</p>
+			<p className="text-sm">
+				Cada país lleva el <strong>motivo</strong> por el que está en la lista. Las categorías posibles son:{" "}
+				<em>riesgo para la seguridad de la comunidad</em> (contexto legal o de seguridad hostil hacia personas LGBTQ+ u otros grupos que
+				esta plataforma protege), <em>sanción internacional</em> (embargos que los proveedores de infraestructura y de pago nos
+				trasladan), <em>abuso o fraude recurrente</em> y <em>marco legal incompatible</em> — hoy la lista sólo usa las dos primeras.
+				La regla de <em>sanción internacional</em> es concreta y no caso por caso: los destinos bajo embargo integral de la OFAC
+				estadounidense, más Venezuela por sus sanciones sectoriales. Esa normativa <strong>no nos obliga</strong> —somos un operador
+				argentino—, pero sí obliga a nuestra infraestructura y a los medios de pago, que nos trasladan el control: si no lo aplicamos,
+				el riesgo es que nos cierren la cuenta y el servicio se caiga para todo el mundo.
+				Última revisión manual de la lista contra la regla activa de Cloudflare: <strong>{LAST_REVIEWED}</strong>; puede haber demora
+				entre la regla y la lista publicada.
+			</p>
 			<details>
 				<summary>Lista actual ({BLOCKED_COUNTRIES.length} países, ISO 3166-1 alpha-2)</summary>
-				<ul className="grid gap-x-6 gap-y-1 sm:grid-cols-2 md:grid-cols-3 text-sm mt-2">
+				<ul className="grid gap-x-6 gap-y-1 sm:grid-cols-2 text-sm mt-2">
 					{BLOCKED_COUNTRIES.map((c) => (
 						<li key={c.code}>
-							<code>{c.code}</code> — {c.name}
+							<code>{c.code}</code> — {c.name} <span className="opacity-70">({BLOCK_REASON_LABEL[c.reason]})</span>
 						</li>
 					))}
 				</ul>
 			</details>
 			<adc-callout tone="info" role="note">
 				La lista puede revisarse cuando cambien las condiciones legales o de seguridad. Si crees que tu país está bloqueado por error o
-				quieres reportar contexto adicional, contacta por los canales de <a href="/contact#canales">contacto</a>.
+				quieres reportar contexto adicional, contacta por los canales de <a href="/contact#canales">contacto</a>. Como el bloqueo es a
+				nivel dominio y puede impedirte ver esta misma página, el canal que funciona aunque el sitio no cargue es el email:{" "}
+				<strong>{CONTACTS.email}</strong>.
 			</adc-callout>
 
 			<h2 id="reportes">Reportes</h2>

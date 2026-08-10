@@ -86,8 +86,9 @@ export function AuthorityRequestsPage() {
 		<PageShell
 			title="Respuesta a autoridades"
 			subtitle="Paso B del marco GNI: cómo evaluar solicitudes legales, gubernamentales o regulatorias."
-			standards={["GNI Paso B", "Derechos humanos"]}
+			standards={["Paso B (marco propio)", "Derechos humanos"]}
 			declaration="commitment"
+			lastUpdated="2026-08-08"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Valores", href: "/values" }, { label: "Autoridades" }]}
 		>
 			<p>

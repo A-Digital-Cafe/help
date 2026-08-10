@@ -27,8 +27,9 @@ export function ContactPage() {
 			<h2 id="para-que-usar-cada-canal">¿Para qué usar cada canal?</h2>
 			<ul>
 				<li>
-					<strong>Privacidad y datos personales:</strong> ejercicio de <a href="/privacy#tus-derechos">derechos GDPR</a> (acceso,
-					rectificación, supresión, portabilidad, oposición).
+					<strong>Privacidad y datos personales:</strong> ejercicio de{" "}
+					<a href="/privacy#tus-derechos">derechos sobre tus datos (Ley 25.326 / RGPD)</a> (acceso, rectificación, supresión,
+					portabilidad, oposición).
 				</li>
 				<li>
 					<strong>Reporte de incidentes éticos o de comunidad:</strong> conductas contrarias a nuestros{" "}
