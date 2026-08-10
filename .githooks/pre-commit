@@ -42,5 +42,9 @@ check_doc() {
 
 check_doc terms apps/help/src/pages/TermsPage.tsx
 check_doc privacy apps/help/src/pages/PrivacyPage.tsx
+# `cookies` y `dpa` entraron al régimen de versionado el 2026-08-08 y quedaron fuera del hook:
+# editarlos dejaba el contentHash viejo en legal-docs.ts sin que nada lo avisara.
+check_doc cookies apps/help/src/pages/CookiesPage.tsx
+check_doc dpa apps/help/src/pages/DpaPage.tsx
 
 exit $blocked
