@@ -30,6 +30,13 @@ export function PrivacyPage() {
 				</a>
 				{"."}
 			</p>
+			<p>
+				El responsable está inscripto en el <strong>Registro Nacional de Bases de Datos Personales</strong> de la AAIP, que crea el
+				art. 21 de la Ley 25.326, con el legajo <strong>RL-2026-76956060-APN-DNPDP#AAIP</strong>. Ahí quedan declaradas las bases de
+				datos personales de la plataforma, con su finalidad, las categorías de datos que contienen, a quién se ceden, las
+				transferencias internacionales que involucran y por cuánto tiempo se conservan — lo mismo que describe esta política, en el
+				formato que pide el organismo.
+			</p>
 
 			<h2 id="que-datos-tratamos">2. Qué datos tratamos</h2>
 			<ul>
@@ -426,7 +433,11 @@ export function PrivacyPage() {
 				<strong>Transferencias entre dispositivos (túnel de Drive):</strong> el contenido que movés en vivo entre tus
 				dispositivos (carpetas montadas y unidades remotas) <strong>no se almacena</strong> en la plataforma: el servidor sólo
 				lo retransmite en tránsito, y cuando la conexión es directa entre navegadores (P2P) ni siquiera pasa por nuestros
-				servidores — sólo intercambiamos la señalización para establecerla. De las <strong>carpetas de transferencia</strong>{" "}
+				servidores — sólo intercambiamos la señalización para establecerla. Eso sí: <strong>armar esa conexión
+					directa involucra a un tercero</strong>. Antes de conectarse, tu navegador le pregunta a un servidor <em>STUN</em> público de
+					Google con qué dirección pública lo ve tu router, porque sin ese dato los dos dispositivos no pueden encontrarse. En esa
+					consulta Google ve tu dirección IP; no ve el contenido que vas a transferir, ni tu identidad, ni nada de tu cuenta. Está
+					declarado en <a href="#infraestructura-y-subprocesadores">§7</a>. De las <strong>carpetas de transferencia</strong>{" "}
 				guardamos el archivo (con las reglas normales de Drive) y un registro de qué dispositivos tuyos confirmaron la
 				descarga; si activás el <em>autoborrado</em>, el archivo se elimina <strong>definitivamente y sin pasar por la
 				papelera</strong> cuando todos tus dispositivos suscritos lo descargaron o al vencer el plazo que configures — es una
@@ -562,6 +573,24 @@ export function PrivacyPage() {
 							<td>Identificador de cuenta de Google y email verificado.</td>
 							<td>EE. UU.</td>
 							<td>Responsable autónomo: sólo interviene si elegís ese acceso, y se rige por sus propias políticas.</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Google LLC</strong> (servidor STUN)
+							</td>
+							<td>
+								Descubrimiento de la dirección pública del dispositivo para establecer una transferencia directa entre tus propios
+								dispositivos en Drive.
+							</td>
+							<td>
+								La dirección IP pública del dispositivo y el puerto que le asigna tu router. No recibe el contenido transferido, ni tu
+								identidad, ni ningún dato de tu cuenta.
+							</td>
+							<td>EE. UU.</td>
+							<td>
+								Responsable autónomo. A diferencia del acceso federado, esta consulta no la elegís vos: la inicia la aplicación, y sólo
+								ocurre cuando abrís una transferencia entre dispositivos.
+							</td>
 						</tr>
 						<tr>
 							<td>

@@ -349,6 +349,18 @@ export function CookiesPage() {
 							</td>
 							<td>Tu IP, tu navegador y el video que pediste, más lo que YouTube haga en ese modo durante la reproducción.</td>
 						</tr>
+						<tr>
+							<td>Google (servidor STUN)</td>
+							<td>
+								<strong>Sólo si abrís una transferencia entre tus dispositivos</strong> en la sección Dispositivos del Drive. Para que
+								los dos equipos se encuentren, tu navegador consulta <code>stun.l.google.com</code> con qué dirección pública lo ve tu
+								router.
+							</td>
+							<td>
+								Tu IP y el puerto que le asigna tu router. No recibe el contenido que transferís ni nada de tu cuenta, y no escribe nada
+								en tu equipo.
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -358,8 +370,8 @@ export function CookiesPage() {
 				cuenta. No se genera nada ni se consulta a nadie.
 			</p>
 			<adc-callout tone="warning" role="note">
-				De esa lista, sólo la analítica de Cloudflare se contacta sin que vos hagas nada; YouTube no se contacta hasta que apretás
-				reproducir. La lista se acortó: las <strong>librerías de React</strong> y las <strong>fotos de perfil de Discord</strong> ya no
+				De esa lista, sólo la analítica de Cloudflare se contacta sin que vos hagas nada: YouTube no se contacta hasta que apretás
+				reproducir, y el servidor STUN sólo si abrís una transferencia entre tus dispositivos. La lista se acortó: las <strong>librerías de React</strong> y las <strong>fotos de perfil de Discord</strong> ya no
 				están. Las librerías se sirven desde nuestra propia infraestructura, y la foto de quien vincula una cuenta de Discord se
 				descarga <strong>una sola vez desde nuestro servidor</strong> al vincularla y se guarda con el resto de los archivos: tu
 				navegador nunca le pide nada al CDN de Discord. Si esa descarga falla, la cuenta usa el avatar por defecto —nunca se enlaza la
