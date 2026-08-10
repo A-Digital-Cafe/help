@@ -349,24 +349,6 @@ export function CookiesPage() {
 							</td>
 							<td>Tu IP, tu navegador y el video que pediste, más lo que YouTube haga en ese modo durante la reproducción.</td>
 						</tr>
-						<tr>
-							<td>CDN de Discord</td>
-							<td>
-								<strong>Sin que hagas nada</strong>, cuando una página muestra la foto de perfil de alguien que vinculó su cuenta de
-								Discord (por ejemplo en un comentario). La imagen se pide directamente a <code>cdn.discordapp.com</code>.
-							</td>
-							<td>Tu IP, tu navegador y la página desde la que se pidió la imagen.</td>
-						</tr>
-						<tr>
-							<td>
-								CDN de módulos (<code>esm.sh</code>)
-							</td>
-							<td>
-								Nuestras páginas declaran que las librerías de React pueden resolverse desde ese CDN público. Según cómo cargue cada
-								app, tu navegador puede descargarlas de ahí al abrir la página.
-							</td>
-							<td>Tu IP y tu navegador. No instala cookies ni identificadores.</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -376,12 +358,12 @@ export function CookiesPage() {
 				cuenta. No se genera nada ni se consulta a nadie.
 			</p>
 			<adc-callout tone="warning" role="note">
-				De esa lista, tres pueden contactarse sin que vos hagas nada: la analítica de Cloudflare, en todas las páginas; el CDN de Discord,
-				siempre que la página muestre una de esas fotos; y el CDN de módulos, según cómo cargue cada app. YouTube, en cambio, no se
-				contacta hasta que apretás reproducir. Servir esas
-				fotos desde nuestra propia infraestructura, como ya hacemos con los avatares por defecto, y auto-hospedar las librerías de
-				React son trabajos pendientes que se siguen en el{" "}
-				<a href="/roadmap#capa-de-transparencia-operaciones">roadmap</a>.
+				De esa lista, sólo la analítica de Cloudflare se contacta sin que vos hagas nada; YouTube no se contacta hasta que apretás
+				reproducir. La lista se acortó: las <strong>librerías de React</strong> y las <strong>fotos de perfil de Discord</strong> ya no
+				están. Las librerías se sirven desde nuestra propia infraestructura, y la foto de quien vincula una cuenta de Discord se
+				descarga <strong>una sola vez desde nuestro servidor</strong> al vincularla y se guarda con el resto de los archivos: tu
+				navegador nunca le pide nada al CDN de Discord. Si esa descarga falla, la cuenta usa el avatar por defecto —nunca se enlaza la
+				imagen remota—.
 			</adc-callout>
 
 			<h2 id="cookies-opcionales">7. Cookies opcionales</h2>

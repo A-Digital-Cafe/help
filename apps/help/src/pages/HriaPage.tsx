@@ -154,8 +154,8 @@ const SECTIONS: HriaSection[] = [
 				id: "q011",
 				question:
 					"Procesos para solicitudes gubernamentales/legales: legitimidad, necesidad, proporcionalidad, transparencia y remedio.",
-				status: "no-iniciado",
-				needed: "Conectar este punto con respuesta a autoridades: canal, verificación, proporcionalidad, minimización, notificación y registro.",
+				status: "en-redaccion",
+				needed: "Procedimiento publicado (canal, verificación, proporcionalidad, minimización, notificación y registro); falta el remedio y la métrica agregada.",
 				relatedHref: "/authority-requests",
 				relatedLabel: "Ver respuesta a autoridades",
 			},

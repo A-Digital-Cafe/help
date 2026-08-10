@@ -69,12 +69,15 @@ export function TeamPage() {
 						<adc-divider text="Personal"></adc-divider>
 					</div>
 
+					{/* Sin `consentAt` la entrada no se pinta: el consentimiento es la base legal, y que
+					    faltarlo falle cerrado es lo que impide publicar a alguien por olvido. */}
 					<div className="flex gap-4 flex-wrap justify-evenly">
 						<TeamCard member={FOUNDER} initials={getInitials(FOUNDER.name)} />
-						<TeamCard member={DEV_MEMBER} initials={getInitials(DEV_MEMBER.name)} />
-						{COMMUNITY_MEMBERS.map((member) => (
-							<TeamCard key={`${member.name}-${member.role}`} member={member} initials={getInitials(member.name)} />
-						))}
+						{[DEV_MEMBER, ...COMMUNITY_MEMBERS]
+							.filter((member) => !!member.consentAt)
+							.map((member) => (
+								<TeamCard key={`${member.name}-${member.role}`} member={member} initials={getInitials(member.name)} />
+							))}
 					</div>
 				</section>
 			</div>

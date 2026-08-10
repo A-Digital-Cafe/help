@@ -34,9 +34,9 @@ const REPORT_ITEMS: ReportItem[] = [
 		title: "Solicitudes de autoridades",
 		status: "planificado",
 		metric: "Cantidad recibida, aceptada, rechazada o parcialmente respondida, por tipo y jurisdicción cuando sea seguro publicarlo.",
-		needed: "Depende del registro auditable definido en respuesta a autoridades.",
-		relatedHref: "/authority-requests#que-se-debe-definir",
-		relatedLabel: "Ver checklist de autoridades",
+		needed: "El registro auditable ya existe; falta publicar el primer agregado del período.",
+		relatedHref: "/authority-requests#registro",
+		relatedLabel: "Ver el registro de autoridades",
 	},
 	{
 		title: "Moderación y reportes comunitarios",

@@ -36,8 +36,9 @@ export function ContactPage() {
 					<adc-platform-link href="/values#reportes">valores</adc-platform-link>.
 				</li>
 				<li>
-					<strong>Solicitudes de autoridades:</strong> canal provisional mientras se cierra la{" "}
-					<adc-platform-link href="/authority-requests">política de respuesta</adc-platform-link>.
+					<strong>Solicitudes de autoridades:</strong> se reciben por un ticket de tipo <strong>Autoridades</strong> en el subdominio de
+					estado, sin necesidad de cuenta. Requisitos, plazos y verificación en la{" "}
+					<adc-platform-link href="/authority-requests">política de respuesta a autoridades</adc-platform-link>.
 				</li>
 				<li>
 					<strong>Bug bounty:</strong> reportá vulnerabilidades abriendo un ticket de tipo Seguridad en el{" "}

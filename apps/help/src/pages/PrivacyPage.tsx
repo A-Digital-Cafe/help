@@ -323,12 +323,46 @@ export function PrivacyPage() {
 						<tr>
 							<td>Tickets de soporte y su contenido</td>
 							<td>
-								<strong>Sin plazo fijo</strong>: son el registro de qué se reportó y cómo se resolvió. Al eliminarse la cuenta el
-								ticket <strong>no se borra, se anonimiza</strong>: se eliminan el email de contacto, el email de sesión, el vínculo
-								con tu cuenta y el handle con el que hubieras pedido crédito público, y esas líneas se reemplazan en el cuerpo por
-								“(cuenta eliminada)”. Sobreviven el título y la descripción tal como los escribiste, la severidad, el estado, los
-								adjuntos y los comentarios —y, en reportes de seguridad, el hash de la descripción original—. Si escribiste datos
-								personales dentro de ese texto libre, se conservan.
+								El ticket es el registro de qué se reportó y cómo se resolvió, así que{" "}
+								<strong>no se borra: se anonimiza</strong>. Al eliminarse la cuenta, y también{" "}
+								<strong>por plazo desde que el ticket se resuelve</strong>, se eliminan el email de contacto, el email de sesión y
+								el vínculo con tu cuenta, y esas líneas se reemplazan en el cuerpo por “(cuenta eliminada)”. El plazo depende del
+								tipo: <strong>30 días</strong> para las solicitudes sobre un menor, <strong>90</strong> para los reportes de datos
+								o de contenido de terceros, <strong>180</strong> para reclamos, sugerencias y ampliaciones, y{" "}
+								<strong>365</strong> para reportes de seguridad y requerimientos de autoridades.
+								<br />
+								Las <strong>solicitudes sobre un menor</strong> son el único caso en que además se vacía el texto libre: su
+								contenido es, por diseño del formulario, la identidad de un menor y su vínculo familiar. Esos tickets se eliminan
+								por completo a los <strong>180 días</strong> de resueltos, y los reportes de datos a los <strong>730</strong>. Un
+								pedido sobre un menor que nadie cierre entra igual al circuito de borrado <strong>al año</strong> de abierto.
+								<br />
+								En el resto de los tipos sobreviven el título y la descripción tal como los escribiste, la severidad, el estado,
+								los adjuntos y los comentarios —y, en reportes de seguridad, el hash de la descripción original—. Si escribiste
+								datos personales dentro de ese texto libre, se conservan. El agradecimiento público de un reporte de seguridad no
+								caduca por plazo: se retira cuando quien lo reportó lo pide.
+							</td>
+						</tr>
+						<tr>
+							<td>Correo: mensajes del buzón</td>
+							<td>
+								Mientras los conserves. La <strong>papelera se vacía sola a los 30 días</strong> y el correo marcado como no deseado
+								se elimina a los <strong>30 días</strong> de recibirse, junto con sus adjuntos y sin recuperación posible. Los
+								mensajes de las demás carpetas (recibidos, enviados, borradores) no tienen borrado automático: se conservan hasta
+								que los borres o hasta que se elimine la cuenta, momento en el que se elimina el buzón completo.
+							</td>
+						</tr>
+						<tr>
+							<td>Correo: adjuntos</td>
+							<td>
+								Con el mensaje al que pertenecen, y sólo cuando ningún otro mensaje los referencia. Un adjunto que se sube a un
+								borrador y nunca se confirma se elimina a las <strong>24 horas</strong>.
+							</td>
+						</tr>
+						<tr>
+							<td>Correo: registro de envíos</td>
+							<td>
+								<strong>30 días</strong>. Guarda el identificador de la cuenta, el del buzón y la <strong>cantidad</strong> de
+								destinatarios —ninguna dirección de correo— y sirve únicamente para aplicar el límite diario de envío de tu plan.
 							</td>
 						</tr>
 						<tr>
@@ -441,7 +475,7 @@ export function PrivacyPage() {
 
 			<h2 id="seguridad">6. Seguridad</h2>
 			<p>
-				Aplicamos hashing de contraseñas (PBKDF2), control de sesión basado en tokens, rate limiting, protección CSRF y cabeceras CSP. Los
+				Aplicamos hashing de contraseñas con una función de derivación de clave lenta y con sal, de las recomendadas por la industria para este uso, que actualizamos cuando cambia el estado de la técnica; control de sesión basado en tokens, rate limiting, protección CSRF y cabeceras CSP. Los
 				archivos de Drive y las credenciales de unidades remotas se cifran en reposo (AES-256-GCM con claves por usuario; en el modo
 				passphrase de unidades remotas el cifrado ocurre en tu dispositivo y ADC no puede descifrarlas). La cobertura completa frente a
 				OWASP ASVS y el detalle de controles forman parte del <a href="/roadmap#capa-de-blindaje-seguridad">roadmap</a> público.
@@ -726,6 +760,41 @@ export function PrivacyPage() {
 				decisión quede firme— está en{" "}
 				<a href="/terms#reclamos-propiedad-intelectual">Términos § 6.1</a>.
 			</p>
+
+			<h2 id="datos-de-colaboradores">13. Datos de colaboradores</h2>
+			<p>
+				En <a href="/team">/team</a> publicamos a las personas que colaboran con el proyecto. No son personas usuarias: sus datos no
+				salen del uso de la plataforma, así que merecen su propio apartado.
+			</p>
+			<ul>
+				<li>
+					<strong>Finalidad:</strong> dar crédito público a quien colabora y que el proyecto tenga una cara identificable en vez de una
+					marca anónima.
+				</li>
+				<li>
+					<strong>Base legal:</strong> <strong>consentimiento</strong> (art. 5.1 de la Ley 25.326; art. 6.1.a del RGPD), prestado por
+					escrito y con fecha. No interés legítimo: publicar a alguien porque colabora con vos no es una necesidad del servicio.
+				</li>
+				<li>
+					<strong>Qué publicamos:</strong> el nombre o alias que la persona eligió, su handle público, su rol, una descripción escrita
+					por ella y un enlace a su sitio. Los avatares son ilustraciones propias salvo que la persona haya aportado una foto, y se
+					sirven desde nuestra infraestructura: la página no hace ninguna petición a terceros.
+				</li>
+				<li>
+					<strong>Destinatarios:</strong> nadie. Es una página pública, pero no se comparte con ningún tercero.
+				</li>
+				<li>
+					<strong>Cómo se retira:</strong> por el mismo canal por el que se prestó el consentimiento —el servidor de Discord o el
+					contacto directo—, o por los <a href="/contact#canales">canales de contacto</a>. Lo ejecutamos en un plazo máximo de{" "}
+					<strong>5 días hábiles</strong>, los mismos que el art. 16 de la Ley 25.326 fija para la rectificación y que ya
+					comprometemos en <a href="#tus-derechos">§4</a>. No pedimos motivos:
+					retirar un consentimiento no se justifica.
+				</li>
+				<li>
+					<strong>Conservación:</strong> la entrada se publica mientras dure el consentimiento. La constancia de que se prestó se archiva
+					aparte —no en el repositorio público— mientras la publicación esté vigente y por el plazo de prescripción posterior.
+				</li>
+			</ul>
 		</PageShell>
 	);
 }

@@ -46,8 +46,8 @@ const LAYERS: Array<{ id: string; name: string; description: string; items: Item
 			},
 			{
 				title: "GNI — Paso B (respuesta a autoridades)",
-				status: "fase-1",
-				notes: "Página de respuesta a autoridades publicada como checklist; proceso operativo pendiente.",
+				status: "done",
+				notes: "Procedimiento operativo publicado: canal dedicado, verificación de legitimidad, registro auditable y escalado.",
 				links: [{ label: "Autoridades", href: "/authority-requests" }],
 			},
 			{
