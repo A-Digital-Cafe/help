@@ -4,6 +4,13 @@ import { BLOCKED_COUNTRY_CODES } from "./blocked-countries";
  * Edades mínimas por país o región, tomando como referencia el criterio público de
  * plataformas comparables.
  *
+ * **Sin países del Espacio Económico Europeo, y es deliberado.** Enumerar Estados miembros
+ * con su edad mínima es uno de los indicios de "oferta dirigida" del Considerando 23 del
+ * RGPD, y contradice el encuadre publicado en `/privacy` §1: el servicio no se dirige a la
+ * Unión y por eso no hay representante del art. 27. La regla vinculante —13 años, o la edad
+ * mayor que fije la ley de tu país— cubre a esos países igual, sin nombrarlos. No volver a
+ * agregarlos sin revisar antes ese encuadre.
+ *
  * **La lista publicada excluye los países bloqueados por geofiltro**: anunciar una edad
  * mínima para un país al que no se puede entrar es contradictorio, y mantener el dato a
  * mano en dos lugares garantiza que tarde o temprano digan cosas distintas. El cruce se
@@ -43,38 +50,6 @@ const ALL_AGE_RULES = [
 			{ code: "BQ", place: "Caribe Neerlandés", age: "16+" },
 			{ code: "CW", place: "Curaçao", age: "16+" },
 			{ code: "SX", place: "Sint Maarten", age: "16+" },
-		],
-	},
-	{
-		region: "Europa",
-		entries: [
-			{ code: "AT", place: "Austria", age: "14+" },
-			{ code: "BG", place: "Bulgaria", age: "14+" },
-			{ code: "HR", place: "Croacia", age: "16+" },
-			{ code: "CY", place: "Chipre", age: "14+" },
-			{ code: "CZ", place: "República Checa", age: "15+" },
-			{ code: "FR", place: "Francia", age: "15+" },
-			{ code: "DE", place: "Alemania", age: "16+" },
-			{ code: "GR", place: "Grecia", age: "15+" },
-			{ code: "HU", place: "Hungría", age: "16+" },
-			{ code: "IE", place: "Irlanda", age: "16+" },
-			{ code: "IT", place: "Italia", age: "14+" },
-			{ code: "LI", place: "Liechtenstein", age: "16+" },
-			{ code: "LT", place: "Lituania", age: "14+" },
-			{ code: "LU", place: "Luxemburgo", age: "16+" },
-			{ code: "NL", place: "Países Bajos", age: "16+" },
-			{ code: "PL", place: "Polonia", age: "16+" },
-			{ code: "RO", place: "Rumania", age: "16+" },
-			{ code: "SM", place: "San Marino", age: "16+" },
-			{ code: "RS", place: "Serbia", age: "15+" },
-			{ code: "SK", place: "Eslovaquia", age: "16+" },
-			{
-				code: "SI",
-				place: "Eslovenia",
-				age: "16+",
-				note: "La ZVOP-2 (2023) fijó 15 y habilita expresamente a que el servicio exija más: acá se exige 16.",
-			},
-			{ code: "ES", place: "España", age: "14+" },
 		],
 	},
 	{

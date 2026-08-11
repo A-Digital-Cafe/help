@@ -44,10 +44,8 @@ export function TermsPage() {
 
 			<h2 id="edad-minima">3. Edad mínima</h2>
 			<p>
-				La edad mínima general para usar la plataforma es <strong>13 años</strong>. En los países listados abajo rige la edad mayor que
-				indique la tabla, tomando como referencia el criterio público usado por plataformas como Discord; si tu país no aparece, rige
-				la regla general de 13+. Al registrarte <strong>declarás cumplir la edad que te corresponda</strong>: no la verificamos con
-				documentación.
+				La edad mínima es de <strong>13 años</strong>, o la que fije la ley de tu país si es mayor. La edad se declara al crear la
+				cuenta y <strong>no la verificamos con documentación</strong>, así que la declaración es responsabilidad de quien se registra.
 			</p>
 			<p>
 				<strong>Para contratar un plan pago</strong> tenés que ser mayor de edad o contar con la autorización de quien ejerza tu
@@ -59,8 +57,13 @@ export function TermsPage() {
 				<a href="/privacy#menores">política de privacidad</a>.
 			</p>
 			<details>
-				<summary>Ver edades mínimas por país o región</summary>
+				<summary>Ver a título informativo algunas edades mínimas por país</summary>
 				<div className="mt-3 space-y-4">
+					<p className="text-sm">
+						Esta lista es <strong>orientativa</strong> y no sustituye a la regla de arriba: si tu país fija una edad mayor, rige
+						esa aunque no figure acá. La armamos tomando como referencia el criterio público de plataformas comparables, no es
+						exhaustiva y no verificamos la edad de nadie con documentación.
+					</p>
 					{AGE_RULES.map((group) => (
 						<section key={group.region}>
 							<h3>{group.region}</h3>

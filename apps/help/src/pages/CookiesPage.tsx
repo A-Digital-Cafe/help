@@ -8,7 +8,7 @@ export function CookiesPage() {
 		<PageShell
 			title="Cookies y tecnologías similares"
 			subtitle="Qué guarda el sitio en tu dispositivo, para qué, cuánto dura y qué terceros pueden intervenir."
-			standards={["Ley 25.326", "GDPR / ePrivacy"]}
+			standards={["Ley 25.326", "GDPR / ePrivacy (alineación voluntaria)"]}
 			declaration="policy"
 			lastUpdated={LEGAL_DOCUMENTS.cookies.version}
 			legalDocId="cookies"

@@ -8,7 +8,7 @@ export function PrivacyPage() {
 		<PageShell
 			title="Política de Privacidad"
 			subtitle="Datos personales, infraestructura y subprocesadores."
-			standards={["Ley 25.326", "GDPR"]}
+			standards={["Ley 25.326", "GDPR (alineación voluntaria)"]}
 			declaration="policy"
 			lastUpdated={LEGAL_DOCUMENTS.privacy.version}
 			legalDocId="privacy"
@@ -36,6 +36,21 @@ export function PrivacyPage() {
 				datos personales de la plataforma, con su finalidad, las categorías de datos que contienen, a quién se ceden, las
 				transferencias internacionales que involucran y por cuánto tiempo se conservan — lo mismo que describe esta política, en el
 				formato que pide el organismo.
+			</p>
+			<p>
+				<strong>No hemos designado delegado de protección de datos</strong> por no concurrir los supuestos del art. 37 del RGPD; el punto
+				de contacto para privacidad es el de arriba. <strong>Tampoco hemos designado representante en la Unión Europea</strong>: el
+				servicio se presta desde Argentina, en español, con precios en dólares estadounidenses y sin dominios, moneda ni comunicaciones
+				dirigidas a Estados miembros, de modo que no concurre la oferta de bienes o servicios del art. 3.2 del RGPD; y tampoco observamos
+				el comportamiento de nadie —no hacemos perfilado ni publicidad basada en él—, que es la otra vía por la que ese artículo podría
+				aplicar. Los planes de equipo <strong>no están disponibles para organizaciones establecidas en el Espacio Económico Europeo</strong>,
+				como detalla el <a href="/dpa#partes-y-aplicacion">Acuerdo de Tratamiento de Datos</a>.
+			</p>
+			<p>
+				Aplicamos voluntariamente los estándares del Reglamento porque nos parecen el mejor punto de referencia disponible, no porque nos
+				resulte aplicable. Cuando esta política cita un artículo del RGPD lo hace como referencia: la norma que rige el tratamiento es la{" "}
+				<strong>Ley 25.326</strong>, cuyos plazos de respuesta —10 días corridos y 5 días hábiles— son además más breves que los del
+				Reglamento. Si el Reglamento resultara aplicable a tu caso, nada de lo que prometemos acá se reduce.
 			</p>
 
 			<h2 id="que-datos-tratamos">2. Qué datos tratamos</h2>
@@ -87,6 +102,12 @@ export function PrivacyPage() {
 			</ul>
 
 			<h2 id="finalidades">3. Para qué usamos esos datos (base legal y finalidad)</h2>
+			<p>
+				La base de cada tratamiento es la que fija la <strong>Ley 25.326</strong>, que es la norma que nos rige (ver{" "}
+				<a href="#responsable">§1</a>). Los artículos del RGPD que aparecen abajo van como referencia, porque son el vocabulario más
+				extendido para hablar de esto y porque aplicamos sus estándares por decisión propia — no porque el Reglamento nos resulte
+				aplicable.
+			</p>
 			<ul>
 				<li>
 					<strong>Ejecución del servicio que solicitas</strong> (art. 6.1.b RGPD; art. 5.2, inc. d) de la Ley 25.326, tratamiento
@@ -247,7 +268,8 @@ export function PrivacyPage() {
 				<a href="https://www.argentina.gob.ar/aaip" rel="noreferrer">
 					argentina.gob.ar/aaip
 				</a>
-				—. Si residís en la Unión Europea, podés además acudir a la autoridad de control de tu país.
+				—. Si el RGPD resultara aplicable a tu caso pese al encuadre de <a href="#responsable">§1</a>, podrías además acudir a la
+				autoridad de control de tu país de residencia.
 			</p>
 			<adc-callout tone="info" role="note">
 				<strong>
@@ -413,6 +435,16 @@ export function PrivacyPage() {
 								vencer el plazo.
 							</td>
 						</tr>
+						<tr>
+							<td>Registro de violaciones de datos personales</td>
+							<td>
+								<strong>5 años desde que el incidente se cierra</strong>. Cada incidente deja constancia de qué pasó, cómo se
+								evaluó el riesgo, a qué autoridad se notificó y a qué personas se avisó —o por qué se decidió no avisar—. Es la
+								prueba de que esa decisión fue correcta, y por eso el plazo corre desde el cierre y no desde la detección:
+								mientras el incidente sigue abierto no vence nada. Si estuviste entre las personas afectadas, tu identificador
+								figura en esa constancia hasta que el plazo vence, aunque hayas dado de baja tu cuenta antes.
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -526,8 +558,13 @@ export function PrivacyPage() {
 							<td>
 								<strong>MongoDB, Inc. (Atlas)</strong>
 							</td>
-							<td>Base de datos gestionada donde se persisten los datos de la plataforma.</td>
-							<td>Datos de cuenta, metadatos de archivos y correo, tickets, suscripciones, registros de moderación.</td>
+							<td>
+								Base de datos gestionada donde se persiste <strong>únicamente el contenido publicado en la comunidad</strong>:
+								artículos, comentarios, valoraciones y rutas de aprendizaje. El resto de las bases de la plataforma —cuentas,
+								archivos, correo, tickets, suscripciones, moderación y auditoría— corre en infraestructura propia de ADC, en
+								Argentina.
+							</td>
+							<td>Autoría, texto y metadatos del contenido que publicás en la comunidad.</td>
 							<td>Región del clúster contratado.</td>
 							<td>
 								Encargado de tratamiento.{" "}
@@ -537,6 +574,15 @@ export function PrivacyPage() {
 								con cláusulas contractuales de protección de datos — garantía contractual del art. 12, Ley 25.326 (ver{" "}
 								<a href="#transferencias-internacionales">§8</a>).
 							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Base de datos de la plataforma</strong>
+							</td>
+							<td>Persiste todo lo que no es contenido de comunidad: cuentas, sesiones, metadatos de archivos y correo, tickets, suscripciones, moderación y auditoría.</td>
+							<td>Prácticamente todo lo descrito en <a href="#que-datos-tratamos">§2</a>, salvo los binarios y el contenido de comunidad.</td>
+							<td>Operada por ADC, en Argentina.</td>
+							<td>No es un tercero: infraestructura propia, sin proveedor gestionado de por medio y sin transferencia internacional.</td>
 						</tr>
 						<tr>
 							<td>
@@ -655,9 +701,21 @@ export function PrivacyPage() {
 				legislación de vigilancia aplicable y documentar medidas suplementarias para recibir los mismos datos. Nosotros no.
 			</p>
 			<p>
+				Esto describe la posición jurídica de Argentina como país de destino, no una oferta dirigida al mercado europeo:{" "}
+				<a href="#responsable">§1</a> explica por qué entendemos que el Reglamento no nos resulta aplicable y que los planes de equipo
+				no están disponibles para organizaciones del Espacio Económico Europeo. Lo decimos acá porque quien llega a esta sección suele
+				estar comparando proveedores, y la adecuación argentina es un dato relevante aunque no vengas de la Unión.
+			</p>
+			<p>
 				Lo que sí implica transferencia internacional es el uso de los proveedores listados en{" "}
 				<a href="#infraestructura-y-subprocesadores">§7</a> que operan fuera de Argentina —Cloudflare, MongoDB Atlas y, si elegís usarlos,
 				Discord, Google o PayPal—. Cada uno figura en la tabla con su jurisdicción y la garantía concreta que aplica.
+			</p>
+			<p>
+				<strong>El grueso de tus datos no sale del país.</strong> La base de datos de la plataforma —cuentas, sesiones, metadatos de
+				archivos y correo, tickets, suscripciones, moderación y auditoría— y el almacenamiento de los binarios corren en infraestructura
+				propia en Argentina. La única base alojada en un proveedor gestionado del exterior es la del{" "}
+				<strong>contenido publicado en la comunidad</strong>, en MongoDB Atlas.
 			</p>
 			<p>
 				Cuando enviamos datos desde Argentina a encargados nuestros radicados en países que la normativa argentina no considera de nivel

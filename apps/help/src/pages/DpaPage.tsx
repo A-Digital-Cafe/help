@@ -8,7 +8,7 @@ export function DpaPage() {
 		<PageShell
 			title="Acuerdo de Tratamiento de Datos (DPA)"
 			subtitle="Condiciones bajo las que ADC trata datos personales por cuenta de una organización con plan de equipo."
-			standards={["Ley 25.326", "GDPR art. 28"]}
+			standards={["Ley 25.326", "GDPR art. 28 (alineación voluntaria)"]}
 			declaration="policy"
 			lastUpdated={LEGAL_DOCUMENTS.dpa.version}
 			legalDocId="dpa"
@@ -29,6 +29,23 @@ export function DpaPage() {
 				vigente a esa fecha. Somos un servicio de autoservicio y no firmamos contratos bilaterales a medida; preferimos decirlo a
 				aparentar lo contrario. Si tu organización necesita constancia documental, este acuerdo se publica versionado, con su hash y su
 				PDF congelado descargable al pie de la página.
+			</p>
+			<adc-callout tone="warning" role="note">
+				<strong>Disponibilidad geográfica.</strong> Este acuerdo, y el plan de equipo al que acompaña,{" "}
+				<strong>no están disponibles para organizaciones establecidas en el Espacio Económico Europeo</strong>, ni para el
+				tratamiento de datos de personas que se encuentren allí. ADC opera desde Argentina y no ha designado representante en la
+				Unión en los términos del art. 27 del RGPD. Al contratar, la Organización <strong>declara y garantiza</strong> que no está
+				establecida en el EEE y que no usará la plataforma para tratar datos de personas que se encuentren allí; si esa declaración
+				deja de ser exacta, debe comunicárnoslo, y ADC puede resolver el acuerdo. La Organización mantendrá indemne a ADC frente a
+				los perjuicios que se deriven de la inexactitud de esa declaración.
+			</adc-callout>
+			<p>
+				<strong>Si tu organización está en el EEE y aun así quiere contratar, escribinos</strong> a{" "}
+				<a href={`mailto:${CONTACTS.email}`}>{CONTACTS.email}</a>. La designación del representante del art. 27 le corresponde a ADC
+				y no puede trasladarse por contrato —una cláusula reparte obligaciones entre las partes, no cambia a quién le reclama una
+				autoridad de control—, pero sí podemos evaluar designarlo caso por caso, con su costo a cargo de quien lo solicita. Hasta que
+				esa designación exista, la contratación no está habilitada. Preferimos decir que hoy no llegamos antes que aceptar un
+				contrato que no podríamos sostener.
 			</p>
 			<adc-callout tone="info" role="note">
 				<strong>Qué cubre y qué no.</strong> Este acuerdo cubre los datos que la Organización administra dentro de la plataforma:
