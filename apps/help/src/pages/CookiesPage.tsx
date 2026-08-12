@@ -29,7 +29,8 @@ export function CookiesPage() {
 
 			<h2 id="cookies-necesarias">2. Cookies necesarias</h2>
 			<p>
-				Son imprescindibles para iniciar sesión, mantener tu sesión, prevenir CSRF y garantizar la seguridad básica del sitio. Todas son{" "}
+				Son imprescindibles para iniciar sesión, mantener tu sesión, prevenir CSRF, servirte la interfaz completa y garantizar la
+				seguridad básica del sitio. Todas son{" "}
 				<strong>propias</strong> (dominio del sitio, <code>.adigitalcafe.com</code> en producción) y todas son <code>HttpOnly</code>: el
 				JavaScript de la página no puede leerlas. En producción viajan sólo por HTTPS. Sin ellas, partes esenciales no funcionarían. La
 				relación con datos de sesión y seguridad se explica en <a href="/privacy#que-datos-tratamos">privacidad</a>.
@@ -96,6 +97,20 @@ export function CookiesPage() {
 							<td>Sostiene el paso intermedio de vincular una cuenta externa a la tuya.</td>
 							<td>
 								<strong>5 minutos</strong>.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>adc_build</code>
+							</td>
+							<td>
+								<strong>Sólo si el sitio está corriendo en más de un servidor.</strong> Anota con qué versión de la interfaz cargaste la
+								página, para que el resto de sus archivos te lleguen de ese mismo servidor y no te queden pantallas a medio cargar.
+								Guarda un número de compilación y nada más: no te identifica, no registra por dónde navegás ni sale del sitio. Hoy
+								funcionamos con un solo servidor, así que todavía no se crea.
+							</td>
+							<td>
+								<strong>Lo que dure la sesión de navegación</strong>: se borra al cerrar el navegador.
 							</td>
 						</tr>
 					</tbody>

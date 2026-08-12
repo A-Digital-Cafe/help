@@ -112,9 +112,10 @@ export function DpaPage() {
 			<p>
 				Aplicamos las medidas técnicas y organizativas descritas en <a href="/privacy#seguridad">§6 de la Política de Privacidad</a>:
 				hashing de contraseñas, control de sesión por tokens, rate limiting, protección CSRF, cabeceras CSP, cifrado en tránsito y
-				cifrado en reposo de archivos y credenciales (AES-256-GCM con claves por usuario). Evaluamos su adecuación de forma continua
-				teniendo en cuenta el estado de la técnica y los riesgos del tratamiento; la cobertura frente a OWASP ASVS forma parte del{" "}
-				<a href="/roadmap#capa-de-blindaje-seguridad">roadmap</a> público.
+				cifrado en reposo de archivos y credenciales (AES-256-GCM con claves por usuario), y redundancia de la infraestructura con
+				copias de seguridad cifradas. Evaluamos su adecuación de forma continua teniendo en cuenta el estado de la técnica y los riesgos
+				del tratamiento; la cobertura frente a OWASP ASVS forma parte del <a href="/roadmap#capa-de-blindaje-seguridad">roadmap</a>{" "}
+				público.
 			</p>
 
 			<h2 id="subencargados">8. Subencargados autorizados</h2>
@@ -138,6 +139,12 @@ export function DpaPage() {
 				el cambio y no encontramos alternativa razonable, puede terminar el plan antes de que el cambio rija. Los proveedores que
 				intervienen sólo por elección de cada persona (Discord, Google, los medios de pago) son responsables autónomos, no
 				subencargados de este acuerdo.
+			</p>
+			<p>
+				Operar el servicio sobre <strong>varios servidores propios</strong>, replicados entre sí y bajo control exclusivo de ADC,{" "}
+				<strong>no es un alta de subencargado</strong> y no dispara ese aviso: no interviene un tercero. Sí lo sería contratar un
+				proveedor externo de alojamiento o de copias de seguridad, y en ese caso rige el párrafo anterior —aviso previo y derecho de la
+				Organización a terminar el plan antes de que el cambio entre en vigor—.
 			</p>
 
 			<h2 id="asistencia-derechos">9. Asistencia para los derechos de los interesados</h2>

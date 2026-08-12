@@ -332,8 +332,9 @@ export function PrivacyPage() {
 						<tr>
 							<td>Registros (logs) de aplicación</td>
 							<td>
-								<strong>No se persisten.</strong> Viven en un buffer en memoria de 5.000 entradas, con redacción automática de
-								datos sensibles al escribirse, y se pierden al reiniciar el proceso.
+								<strong>No se persisten.</strong> Cada proceso de la plataforma mantiene un buffer en memoria de hasta 5.000
+								entradas, con redacción automática de datos sensibles al escribirse. No se escriben a disco ni se envían a ningún
+								servicio de terceros, y se pierden al reiniciar el proceso.
 							</td>
 						</tr>
 						<tr>
@@ -523,6 +524,16 @@ export function PrivacyPage() {
 				passphrase de unidades remotas el cifrado ocurre en tu dispositivo y ADC no puede descifrarlas). La cobertura completa frente a
 				OWASP ASVS y el detalle de controles forman parte del <a href="/roadmap#capa-de-blindaje-seguridad">roadmap</a> público.
 			</p>
+			<p>
+				<strong>Réplicas y copias de seguridad.</strong> Para tolerar la caída de una máquina, la infraestructura puede estar replicada en
+				más de un servidor propio. Las réplicas son <strong>copias vivas, no archivos congelados</strong>: cuando un dato se elimina
+				—porque lo borraste, porque venció su plazo o porque se eliminó tu cuenta— la supresión se propaga a todas ellas. Aparte de las
+				réplicas mantenemos <strong>copias de seguridad cifradas, con una retención de 30 días</strong>, cuyo único uso es restaurar el
+				servicio ante un desastre: no se consultan para recuperar datos ya suprimidos y, si hubiera que restaurar una copia que todavía los
+				contuviera, la supresión se vuelve a aplicar sobre lo restaurado. Réplicas y copias viven sobre la misma infraestructura propia en
+				Argentina; si alguna vez pasaran a un proveedor externo sería un alta de encargado, con el aviso previo que promete la{" "}
+				<a href="#infraestructura-y-subprocesadores">§7</a>.
+			</p>
 
 			<h2 id="infraestructura-y-subprocesadores">7. Infraestructura y subprocesadores</h2>
 			<p>Estos son todos los proveedores que pueden tratar datos personales en nuestro nombre o por su propia cuenta:</p>
@@ -582,7 +593,10 @@ export function PrivacyPage() {
 							<td>Persiste todo lo que no es contenido de comunidad: cuentas, sesiones, metadatos de archivos y correo, tickets, suscripciones, moderación y auditoría.</td>
 							<td>Prácticamente todo lo descrito en <a href="#que-datos-tratamos">§2</a>, salvo los binarios y el contenido de comunidad.</td>
 							<td>Operada por ADC, en Argentina.</td>
-							<td>No es un tercero: infraestructura propia, sin proveedor gestionado de por medio y sin transferencia internacional.</td>
+							<td>
+								No es un tercero: infraestructura propia, sin proveedor gestionado de por medio y sin transferencia internacional.
+								Puede estar distribuida y replicada en más de un servidor, todos en Argentina y bajo control exclusivo de ADC.
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -590,8 +604,11 @@ export function PrivacyPage() {
 							</td>
 							<td>Guarda el binario de los archivos de Drive y los adjuntos de correo.</td>
 							<td>Contenido de tus archivos, cifrado en reposo.</td>
-							<td>Operado por ADC.</td>
-							<td>No es un tercero: cifrado AES-256-GCM con claves por usuario.</td>
+							<td>Operado por ADC, en Argentina.</td>
+							<td>
+								No es un tercero: cifrado AES-256-GCM con claves por usuario. Puede estar distribuido y replicado en más de un
+								servidor, todos en Argentina y bajo control exclusivo de ADC.
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -715,7 +732,12 @@ export function PrivacyPage() {
 				<strong>El grueso de tus datos no sale del país.</strong> La base de datos de la plataforma —cuentas, sesiones, metadatos de
 				archivos y correo, tickets, suscripciones, moderación y auditoría— y el almacenamiento de los binarios corren en infraestructura
 				propia en Argentina. La única base alojada en un proveedor gestionado del exterior es la del{" "}
-				<strong>contenido publicado en la comunidad</strong>, en MongoDB Atlas.
+				<strong>contenido publicado en la comunidad</strong>, en MongoDB Atlas. Esa infraestructura propia puede crecer en número de
+				servidores —y replicarse entre ellos— sin que eso cambie nada de lo anterior, porque todos están en Argentina y bajo nuestro
+				control exclusivo. <strong>Si alguna vez ubicáramos infraestructura propia fuera del país</strong>, dejaría de ser cierto: lo
+				anunciaríamos por los canales de aviso de la cuenta antes de que rija, actualizaríamos la tabla de{" "}
+				<a href="#infraestructura-y-subprocesadores">§7</a> con la nueva jurisdicción y su garantía, y lo declararíamos ante el Registro
+				Nacional de Bases de Datos Personales.
 			</p>
 			<p>
 				Cuando enviamos datos desde Argentina a encargados nuestros radicados en países que la normativa argentina no considera de nivel
