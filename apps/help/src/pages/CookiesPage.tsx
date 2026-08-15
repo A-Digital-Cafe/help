@@ -322,11 +322,20 @@ export function CookiesPage() {
 				<a href="/privacy#infraestructura-y-subprocesadores">infraestructura y subprocesadores</a>.
 			</p>
 			<p>
-				Para medir, el proxy de Cloudflare inserta en nuestras páginas un pequeño script suyo (<code>static.cloudflareinsights.com</code>),
-				que reporta la visita a Cloudflare. Es analítica <strong>sin estado</strong>: no escribe cookies ni ninguna otra clave en tu equipo,
-				no crea un identificador que te siga entre visitas y no alimenta perfiles publicitarios. Por no guardar nada en tu dispositivo, no
-				entra en el supuesto de consentimiento previo del art. 5.3 de la Directiva ePrivacy. Si bloqueás scripts de terceros con una
-				extensión, el sitio funciona igual: la medición simplemente no ocurre.
+				Para medir, nuestras páginas incluyen un pequeño script de Cloudflare (<code>static.cloudflareinsights.com</code>) que reporta la
+				visita. Es analítica <strong>sin estado</strong>: no escribe cookies ni ninguna otra clave en tu equipo, no crea un identificador
+				que te siga entre visitas y no alimenta perfiles publicitarios. Por no guardar nada en tu dispositivo, no entra en el supuesto de
+				consentimiento previo del art. 5.3 de la Directiva ePrivacy. Si bloqueás scripts de terceros con una extensión, el sitio funciona
+				igual: la medición simplemente no ocurre.
+			</p>
+			<p>
+				<strong>Respetamos Global Privacy Control (GPC).</strong> Si tu navegador —o una extensión— envía la señal <code>Sec-GPC</code>, no
+				insertamos ese script: la visita no se mide y Cloudflare no recibe nada. Lo decide nuestro servidor en cada pedido, así que no hace
+				falta que configures nada acá ni que aceptes o rechaces un cartel. Publicamos esa declaración, como pide la especificación, en{" "}
+				<a href="/.well-known/gpc.json">
+					<code>/.well-known/gpc.json</code>
+				</a>
+				.
 			</p>
 
 			<h2 id="terceros">6. Terceros que tu navegador puede contactar</h2>
@@ -347,8 +356,9 @@ export function CookiesPage() {
 						<tr>
 							<td>Cloudflare (analítica)</td>
 							<td>
-								<strong>Sin que hagas nada</strong>, en todas las páginas: el proxy inserta su script de medición desde{" "}
-								<code>static.cloudflareinsights.com</code> y éste reporta la visita a <code>cloudflareinsights.com</code>.
+								<strong>Sin que hagas nada</strong>, en todas las páginas: incluimos su script de medición desde{" "}
+								<code>static.cloudflareinsights.com</code> y éste reporta la visita a <code>cloudflareinsights.com</code>.{" "}
+								<strong>No ocurre si tu navegador envía la señal GPC</strong> (ver <a href="#analitica">analítica</a>).
 							</td>
 							<td>
 								Tu IP, tu navegador y la página visitada, más métricas de rendimiento de la carga. No escribe cookies ni ningún
