@@ -46,7 +46,7 @@ export default class HelpApp extends AppWithSeo {
 			},
 			pageMeta: {
 				defaults: {
-					titleTemplate: "%s · ADC Ayuda",
+					titleTemplate: "%s · Abby's Digital Cafe",
 					og: { siteName: "Abby's Digital Cafe", locale: "es_ES", type: "website" },
 					twitter: { card: "summary" },
 					ogBrand: { background: "#edf5e3", color: "#772300", brandName: "ADC Ayuda" },
