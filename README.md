@@ -9,6 +9,9 @@ solicitudes de autoridades, equipo y hoja de ruta.
 - `apps/help/` — App UI federada (host, `isHost: true`) servida en el subdominio `help`. Usa
   `SEOService` (opcional) para sitemap y metadatos por página, y `media-ui-library` (preset
   `adc-media`) para renderizar los tutoriales en Markdown.
+- `services/LegalDocsService/` — Gobierno del ciclo de vida de los documentos legales: verifica el
+  sello del texto desplegado, genera los PDF congelados, anuncia los cambios de versión y sirve la
+  tab «Legales» del panel de administración.
 
 ## Por qué vive en su propio repositorio
 
@@ -33,10 +36,10 @@ documento legal hay que subir su versión ahí; esta app la lee y la muestra com
 actualización. Ese archivo también guarda el `contentHash` (SHA-256) de cada documento, que viaja a
 la constancia de aceptación.
 
-El hook de [`.githooks/pre-commit`](.githooks/pre-commit) mantiene el hash en sincronía: regenera el
-`contentHash` en el repo raíz al commitear cambios de `TermsPage`/`PrivacyPage` y bloquea el commit
-si el texto cambió sin bump de versión (la versión nunca se auto-bumpea: dispara el aviso legal a
-usuarios). En un clon fresco hay que activarlo una vez: `git config core.hooksPath .githooks`.
+Ese hash **no se mantiene a mano ni por un hook de git**: `LegalDocsService` lo recalcula contra el
+archivo desplegado en cada arranque y lo muestra en la tab «Legales» del panel, y
+`bun run extra-checks` lo verifica en cualquier clon y en CI. Ver
+[docs/guides/legal-operations.md](../../docs/guides/legal-operations.md).
 
 ## Uso
 

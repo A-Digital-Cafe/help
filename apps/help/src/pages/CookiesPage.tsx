@@ -299,6 +299,18 @@ export function CookiesPage() {
 							<td>Identificador del dispositivo que registraste en ese túnel, para reconocerlo entre sesiones.</td>
 						</tr>
 						<tr>
+							<td>
+								<code>adc-generators:*</code>
+							</td>
+							<td>localStorage</td>
+							<td>
+								Lo que tenés a medio hacer en los generadores del subdominio <code>gen</code>: el último texto que escribiste, la
+								paleta en curso y las preferencias de cada herramienta. Se guarda para que no pierdas el trabajo al recargar, no se
+								envía a nuestros servidores y se borra desde el propio generador o borrando los datos del sitio. Funciona sin cuenta
+								y no lleva ningún identificador que permita seguirte entre visitas.
+							</td>
+						</tr>
+						<tr>
 							<td>Cachés cuyo nombre empieza con {"adc-"}</td>
 							<td>Cache Storage (Service Worker)</td>
 							<td>

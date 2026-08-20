@@ -1,0 +1,10 @@
+{
+	"name": "@adc-platform/legal-docs-service",
+	"license": "LicenseRef-Proprietary",
+	"author": "abbytec",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"main": "index.ts",
+	"dependencies": {}
+}

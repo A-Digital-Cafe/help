@@ -215,6 +215,16 @@ export function TermsPage() {
 				<a href="#suspension-de-cuentas">§ 4.1</a>. Contamos suspensiones firmes, no reportes recibidos: un reporte infundado no te
 				perjudica.
 			</p>
+			<p id="contenido-generado-con-herramientas">
+				<strong>Contenido que creás con las herramientas de la plataforma.</strong> Lo que producís con los editores y generadores de ADC
+				—textos, imágenes, paletas, documentos— <strong>es tuyo</strong>, y podés usarlo con cualquier fin, incluido el comercial. No
+				reclamamos titularidad ni licencia sobre ese resultado: si lo guardás en la plataforma rige el párrafo anterior, es decir, la
+				misma licencia limitada de exhibición y las copias técnicas necesarias para almacenártelo. Seguís siendo responsable de lo que
+				aportás —el texto que escribís, las imágenes que subís, las marcas que reproducís— y de contar con los derechos sobre eso: el
+				resultado no pasa a ser tuyo por haber atravesado una herramienta nuestra. Las tipografías y demás componentes de terceros que
+				esas herramientas utilizan se publican con su licencia en{" "}
+				<adc-platform-link href="/licenses">avisos de licencia de terceros</adc-platform-link>.
+			</p>
 			<h3 id="reclamos-propiedad-intelectual">6.1. Reclamos por derechos de autor y propiedad intelectual</h3>
 			<p>
 				Si sos titular de un derecho de autor, una marca u otro derecho de propiedad intelectual —o actuás en su representación— y creés
@@ -322,6 +332,15 @@ export function TermsPage() {
 				ADC no se comparten con proveedores publicitarios, ningún identificador publicitario sin consentimiento previo con rechazo
 				igual de accesible, y cada proveedor publicado antes de activarse.
 			</p>
+			<p id="subdominio-de-generadores">
+				El subdominio <code>gen</code> reúne los generadores y utilidades de la plataforma —texto, tipografías, paletas de color—. Es
+				de acceso público y funciona sin cuenta: la sesión hace falta sólo para guardar el resultado en Drive o para exportarlo en alta
+				calidad, y los límites de cada plan están publicados en el <a href="#planes-y-beneficios">§ 11</a>. Sus avisos propios cubren dos
+				cosas: las licencias de las tipografías que utiliza, publicadas en{" "}
+				<adc-platform-link href="/licenses">avisos de licencia de terceros</adc-platform-link>, y una advertencia de accesibilidad sobre
+				el texto compuesto con caracteres Unicode decorativos, que los lectores de pantalla leen mal y que no todos los dispositivos
+				muestran igual. <strong>No lleva publicidad</strong>: eso queda acotado a <code>games</code>.
+			</p>
 
 			<h2 id="disponibilidad">9. Disponibilidad</h2>
 			<p>
@@ -367,6 +386,16 @@ export function TermsPage() {
 				terceros que conectes por tu cuenta (unidades remotas S3/WebDAV, proveedores de identidad); la pérdida de credenciales cuya
 				custodia es exclusivamente tuya —como la <em>passphrase</em> de una unidad remota, que no podemos recuperar—; ni el lucro
 				cesante o los daños indirectos derivados del uso o de la imposibilidad de uso del servicio.
+			</p>
+			<p id="resultado-de-las-herramientas">
+				<strong>Resultado de las herramientas.</strong> El “tal cual” de la <a href="#disponibilidad">§ 9</a> alcanza también lo que
+				producen los editores y generadores de la plataforma: no garantizamos que un resultado sea apto para un fin determinado, ni que
+				el texto, el nombre o el diseño que armes con ellos esté libre de conflicto con marcas o derechos de terceros —eso depende de lo
+				que escribas, no de la herramienta—. Si vas a darle un uso comercial, esa verificación es tuya. Lo que sí seguimos debiéndote es
+				que la herramienta haga lo que dice: que el archivo que exportás sea el que viste en pantalla y que las tipografías y demás
+				componentes de terceros que use estén licenciados para eso, publicados en{" "}
+				<adc-platform-link href="/licenses">avisos de licencia de terceros</adc-platform-link>. Nada de este párrafo desplaza las dos
+				reglas del comienzo de esta sección.
 			</p>
 			<p>
 				En los <strong>usos no destinados al consumo final</strong> (organizaciones y planes de equipo), y siempre con la salvedad del

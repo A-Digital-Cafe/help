@@ -37,14 +37,21 @@ export function LicensesPage() {
 	return (
 		<PageShell
 			title="Licencias de terceros"
-			subtitle="El software de código abierto que viaja en el bundle que descarga tu navegador."
+			subtitle="El software y las tipografías de código abierto que viajan en lo que descarga tu navegador."
 			declaration="informational"
 			breadcrumb={[{ label: "Inicio", href: "/" }, { label: "Licencias" }]}
 		>
 			<p>
-				Cuando abrís una app de ADC, tu navegador descarga un archivo que <strong>contiene copias</strong> de las librerías listadas
-				abajo. Servir ese archivo es distribuirlas, y las licencias permisivas bajo las que se publican (MIT, BSD, ISC) lo autorizan con
-				una condición: conservar el aviso de copyright y el texto de la licencia. Eso es esta página.
+				Cuando abrís una app de ADC, tu navegador descarga archivos que <strong>contienen copias</strong> de los componentes listados
+				abajo. Servirlos es distribuirlos, y las licencias permisivas bajo las que se publican (MIT, BSD, ISC, Apache-2.0, SIL OFL) lo
+				autorizan con una condición: conservar el aviso de copyright y el texto de la licencia. Eso es esta página.
+			</p>
+			<p>
+				El listado no se limita al código: alcanza a <strong>todo componente de terceros que se instale como paquete</strong> y termine
+				en tu navegador, incluidas las <strong>tipografías</strong> que usan los editores y generadores de la plataforma. Que una fuente
+				se distribuya bajo la SIL Open Font License no te da derechos sobre el archivo de fuente por haberla usado en una herramienta:
+				lo que hacés con el resultado se rige por los{" "}
+				<adc-platform-link href="/terms#contenido-generado-con-herramientas">Términos § 6</adc-platform-link>.
 			</p>
 			<p>
 				El minificador borra los comentarios del bundle, incluidos los avisos de licencia que traen los paquetes. Por eso el aviso se
