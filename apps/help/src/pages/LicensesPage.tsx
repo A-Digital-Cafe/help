@@ -76,7 +76,7 @@ export function LicensesPage() {
 				<>
 					<h2 id="paquetes">Paquetes incluidos ({entries.length})</h2>
 					{entries.map((entry) => (
-						<details key={`${entry.name}@${entry.version}`} className="border-b border-border/50 py-2">
+						<details key={`${entry.name}@${entry.version}`} className="border-b border-divider/50 py-2">
 							<summary className="cursor-pointer">
 								<strong>{entry.name}</strong> <span className="opacity-70">{entry.version}</span> —{" "}
 								<adc-badge color="blue">{entry.license}</adc-badge>
