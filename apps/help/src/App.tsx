@@ -18,8 +18,9 @@ import { RoadmapPage } from "./pages/RoadmapPage";
 import { TeamPage } from "./pages/TeamPage";
 import { TutorialsPage } from "./pages/TutorialsPage";
 import { TutorialArticlePage } from "./pages/TutorialArticlePage";
-import { NotFoundPage } from "./pages/NotFoundPage";
 
+// Espejo de `uiModule.spaRoutes` en config.json: lo que no esté ahí lo sirve el kernel con 404.
+// Agregar una ruta acá sin agregarla allá la deja inalcanzable (404 + NotFoundPage).
 const HELP_ROUTES = new Set([
 	"/",
 	"/privacy",
@@ -110,7 +111,15 @@ function renderPage(path: string) {
 		case "/roadmap":
 			return <RoadmapPage />;
 		default:
-			return <NotFoundPage />;
+			// El kernel ya contestó 404 (ver `uiModule.spaRoutes` en config.json); esto es lo que se ve.
+			return (
+				<adc-not-found
+					actions={JSON.stringify([
+						{ label: "Centro de ayuda", href: "/" },
+						{ label: "Roadmap", href: "/roadmap" },
+					])}
+				/>
+			);
 	}
 }
 

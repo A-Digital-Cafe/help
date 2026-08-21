@@ -18,6 +18,25 @@
 				"Content-Security-Policy-Restrict": "img-src 'self' data: blob: https://cdn.discordapp.com"
 			}
 		},
+		"spaRoutes": [
+			"/",
+			"/privacy",
+			"/cookies",
+			"/dpa",
+			"/terms",
+			"/values",
+			"/ethics",
+			"/hria",
+			"/authority-requests",
+			"/transparency",
+			"/contact",
+			"/acknowledgments",
+			"/licenses",
+			"/team",
+			"/roadmap",
+			"/tutorials",
+			"/tutorials/*"
+		],
 		"hosting": [
 			{
 				"domains": ["adigitalcafe.com"],
